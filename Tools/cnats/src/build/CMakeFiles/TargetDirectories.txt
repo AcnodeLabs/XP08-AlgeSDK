@@ -1,5 +1,0 @@
-C:/Users/123/SANDBOX/AlgeSDK/Tools/cnats/src/build/CMakeFiles/nats.dir
-C:/Users/123/SANDBOX/AlgeSDK/Tools/cnats/src/build/CMakeFiles/nats_static.dir
-C:/Users/123/SANDBOX/AlgeSDK/Tools/cnats/src/build/CMakeFiles/INSTALL.dir
-C:/Users/123/SANDBOX/AlgeSDK/Tools/cnats/src/build/CMakeFiles/ALL_BUILD.dir
-C:/Users/123/SANDBOX/AlgeSDK/Tools/cnats/src/build/CMakeFiles/ZERO_CHECK.dir

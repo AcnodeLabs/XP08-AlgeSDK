@@ -1,7 +1,0 @@
-*~
-*.o
-sockets/
-tcpclient
-tcpserver
-udpclient
-udpserver

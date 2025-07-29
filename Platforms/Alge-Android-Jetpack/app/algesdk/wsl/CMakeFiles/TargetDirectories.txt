@@ -1,3 +1,0 @@
-/mnt/c/Users/liveb/source/repos/XP08-AlgeSDK/Platforms/Alge-Android-Jetpack/app/algesdk/wsl/CMakeFiles/algesdk.dir
-/mnt/c/Users/liveb/source/repos/XP08-AlgeSDK/Platforms/Alge-Android-Jetpack/app/algesdk/wsl/CMakeFiles/edit_cache.dir
-/mnt/c/Users/liveb/source/repos/XP08-AlgeSDK/Platforms/Alge-Android-Jetpack/app/algesdk/wsl/CMakeFiles/rebuild_cache.dir

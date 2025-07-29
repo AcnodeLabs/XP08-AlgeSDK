@@ -1,5 +1,0 @@
-sudo xcode-select -s /Applications/Xcode.app/Contents/Developer
-xcodebuild -list -project Alge-macOS-Arm.xcodeproj
-xcodebuild -scheme AlgeApp build -configuration Debug clean build CONFIGURATION_BUILD_DIR=../../../../SANDBOX/Xcode_output
-cp -f ../../../../SANDBOX/Xcode_output/libfmod* /usr/local/lib
-open ../../../../SANDBOX/Xcode_output/AlgeApp.app
