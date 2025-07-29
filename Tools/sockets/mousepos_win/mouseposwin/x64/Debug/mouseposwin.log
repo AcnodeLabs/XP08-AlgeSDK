@@ -1,0 +1,6 @@
+﻿  mouseposwin.cpp
+C:\Users\aliveb\source\REPOS\XP08-AlgeSDK\Tools\sockets\mousepos_win\mouseposwin\mouseposwin.cpp(115,44): warning C4244: 'argument': conversion from 'LONG' to 'short', possible loss of data
+C:\Users\aliveb\source\REPOS\XP08-AlgeSDK\Tools\sockets\mousepos_win\mouseposwin\mouseposwin.cpp(115,39): warning C4244: 'argument': conversion from 'LONG' to 'short', possible loss of data
+C:\Users\aliveb\source\REPOS\XP08-AlgeSDK\Tools\sockets\mousepos_win\mouseposwin\mouseposwin.cpp(126,44): warning C4244: 'argument': conversion from 'LONG' to 'short', possible loss of data
+C:\Users\aliveb\source\REPOS\XP08-AlgeSDK\Tools\sockets\mousepos_win\mouseposwin\mouseposwin.cpp(126,39): warning C4244: 'argument': conversion from 'LONG' to 'short', possible loss of data
+  mouseposwin.vcxproj -> C:\Users\aliveb\source\REPOS\XP08-AlgeSDK\Tools\sockets\mousepos_win\mouseposwin\x64\Debug\mouseposwin.exe

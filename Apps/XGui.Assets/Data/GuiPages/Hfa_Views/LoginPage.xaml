@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="HomeFoodAround.LoginPage"
+             Title="LoginPage">
+    <VerticalStackLayout Spacing="30" VerticalOptions="Start" HorizontalOptions="CenterAndExpand">
+        <VerticalStackLayout Spacing="30">
+        <Label 
+            Text="Welcome to XAL Network"
+            FontSize="Large"
+            VerticalOptions="Start" 
+            HorizontalOptions="Center" />
+        <Image 
+            Source="dotnet_bot"
+            HeightRequest="50"
+            VerticalOptions="Start" 
+            HorizontalOptions="Center" />
+        <Label 
+            Text="Sign in with your existing credentials of make a new accont"
+            FontSize="Small"
+            VerticalOptions="Start" 
+            HorizontalOptions="Start" />
+        </VerticalStackLayout>
+        <VerticalStackLayout Spacing="20">
+        <HorizontalStackLayout HorizontalOptions="Start">
+            <Image 
+            Source="dotnet_bot"
+            HorizontalOptions="Start" WidthRequest="30" HeightRequest="30"/>
+                <Label Text="Enter Username:   " VerticalTextAlignment="Center"></Label>
+            <Entry x:Name="entUser" MinimumWidthRequest="300" FontSize="Small" HorizontalOptions="Start"/>
+        </HorizontalStackLayout>
+
+        <HorizontalStackLayout HorizontalOptions="Start">
+            <Image 
+            Source="dotnet_bot"
+            HorizontalOptions="Start" WidthRequest="30" HeightRequest="30"/>
+            <Label Text="Enter Password:   " VerticalTextAlignment="Center"></Label>
+            <Entry x:Name="entPass" IsPassword="True" MinimumWidthRequest="300" FontSize="Small" HorizontalOptions="Start"/>
+        </HorizontalStackLayout>
+            <Button 
+            Text="LOGIN"
+            FontSize="Medium" MinimumWidthRequest="200"
+            HorizontalOptions="CenterAndExpand" Clicked="Button_Clicked"/>
+            <Button 
+            Text="SignUp"
+            FontSize="Medium" MinimumWidthRequest="200"
+            HorizontalOptions="CenterAndExpand" Clicked="Button_Clicked_1"/>
+
+        <HorizontalStackLayout HorizontalOptions="Center" VerticalOptions="End">
+                <Image 
+            Source="dotnet_bot"
+            HorizontalOptions="Start" WidthRequest="30" HeightRequest="30"/>
+            <Label Text="Powered by Xal" FontSize="Micro"/>
+
+         </HorizontalStackLayout>
+
+        </VerticalStackLayout>
+       
+
+        
+    </VerticalStackLayout>
+</ContentPage>

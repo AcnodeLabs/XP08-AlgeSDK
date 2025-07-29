@@ -1,0 +1,13 @@
+SystemA
+-MachineA
+--ModuleAA
+---PartAAA
+---PartAAB
+---PartAAC
+-MachineB
+--ModuleBA
+---PartBAA
+---PartBAB
+-MachineC
+-MachineD
+--ModuleI

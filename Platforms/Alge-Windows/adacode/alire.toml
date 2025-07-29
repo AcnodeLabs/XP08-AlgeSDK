@@ -1,0 +1,7 @@
+name = "adacode"
+description = "Shiny new project"
+version = "0.1.0-dev"
+
+authors = ["Bilal Ahsan"]
+maintainers = ["Bilal Ahsan <three6tdegree@gmail.com>"]
+maintainers-logins = ["Acnodelabs"]

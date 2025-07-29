@@ -1,0 +1,1 @@
+plink liveb@192.168.100.236 -no-antispoof -pw 1234 ./devops_run

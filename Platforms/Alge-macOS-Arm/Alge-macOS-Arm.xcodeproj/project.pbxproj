@@ -1,0 +1,700 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 55;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		4C00D8502AF79A19003D2CFA /* Data in Resources */ = {isa = PBXBuildFile; fileRef = 4C00D84F2AF79A19003D2CFA /* Data */; };
+		4C6D3ECA27BE5C4300516D0D /* Extensions.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4C6D3EC927BE5C4300516D0D /* Extensions.cpp */; };
+		88223B85239F7C9200755258 /* jpgd.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 88223B84239F7C9200755258 /* jpgd.cpp */; };
+		88AB79D12316DC63004A0239 /* UTM.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9CE79C6A1F9DED0800B87310 /* UTM.cpp */; };
+		88BBEF8523163D1B009AEDF6 /* serif_s24.glyphmap in Resources */ = {isa = PBXBuildFile; fileRef = 88BBEF8423163D1B009AEDF6 /* serif_s24.glyphmap */; };
+		8910DDF42DAA5B9700DC5F39 /* detectkbds.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8910DDF32DAA5B9700DC5F39 /* detectkbds.cpp */; };
+		897A2DFA2DB620D40047A119 /* objc_code.mm in Sources */ = {isa = PBXBuildFile; fileRef = 897A2DF92DB620AE0047A119 /* objc_code.mm */; };
+		897A2DFD2DB621C80047A119 /* ScriptingBridge.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 897A2DFC2DB621C80047A119 /* ScriptingBridge.framework */; platformFilters = (macos, ); };
+		89BF42E12DB0FAD100E4655B /* sendkeystroke in Resources */ = {isa = PBXBuildFile; fileRef = 89BF42E02DB0FAD100E4655B /* sendkeystroke */; };
+		89BF42E32DB0FAE300E4655B /* send-key-and-restore.applescript in Resources */ = {isa = PBXBuildFile; fileRef = 89BF42E22DB0FAE300E4655B /* send-key-and-restore.applescript */; };
+		89BF42E52DB1243300E4655B /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 89BF42E42DB1243300E4655B /* Carbon.framework */; platformFilters = (macos, ); };
+		89CAA84A2B77D303007685C1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 89CAA8492B77D303007685C1 /* Foundation.framework */; };
+		89CAA84C2B77D30E007685C1 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 89CAA84B2B77D30E007685C1 /* QuartzCore.framework */; };
+		89CAA84E2B77D319007685C1 /* Metal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 89CAA84D2B77D319007685C1 /* Metal.framework */; };
+		9C2B84552243F748005DF297 /* camera.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9C2B84542243F747005DF297 /* camera.cpp */; };
+		9C3281BF13F275F900A53E54 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C3281BE13F275F900A53E54 /* Cocoa.framework */; };
+		9C3281C913F275F900A53E54 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9C3281C713F275F900A53E54 /* InfoPlist.strings */; };
+		9C3281CC13F275F900A53E54 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C3281CB13F275F900A53E54 /* main.m */; };
+		9C3281CF13F275F900A53E54 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 9C3281CD13F275F900A53E54 /* Credits.rtf */; };
+		9C3281D213F275F900A53E54 /* AlgeAppPlanetsAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C3281D113F275F900A53E54 /* AlgeAppPlanetsAppDelegate.m */; };
+		9C3281D513F275F900A53E54 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9C3281D313F275F900A53E54 /* MainMenu.xib */; };
+		9C3FB9A51FAEF72F0098B256 /* Toast.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9C3FB9A41FAEF72F0098B256 /* Toast.mm */; };
+		9C4636CC1FBA0D65008FB5EF /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C4636B81FBA0AF6008FB5EF /* AudioToolbox.framework */; };
+		9C4637221FBA0E4B008FB5EF /* alge-mac.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9C4637211FBA0E4B008FB5EF /* alge-mac.cpp */; };
+		9C4637261FBA0E73008FB5EF /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C4636C91FBA0D11008FB5EF /* AppKit.framework */; };
+		9C4637271FBA0E7C008FB5EF /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C4636C41FBA0CF0008FB5EF /* CoreAudio.framework */; };
+		9C46498813F2AF22004CE3D7 /* Timer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9C46498613F2AF22004CE3D7 /* Timer.cpp */; };
+		9CDB499513F28138009F3058 /* screen820480.png in Resources */ = {isa = PBXBuildFile; fileRef = 9CDB499413F28138009F3058 /* screen820480.png */; };
+		9CDB499813F28159009F3058 /* icon100.png in Resources */ = {isa = PBXBuildFile; fileRef = 9CDB499713F28159009F3058 /* icon100.png */; };
+		9CE59E5A22E06297000FB6F1 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9CE59E5922E06297000FB6F1 /* CoreGraphics.framework */; };
+		9CE687CA22E0ED5D0046E542 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9CE687C922E0ED5D0046E542 /* OpenGL.framework */; };
+		9CE687CC22E0ED7F0046E542 /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9CE687CB22E0ED7F0046E542 /* OpenAL.framework */; };
+		9CE687CE22E0ED9E0046E542 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9CE687CD22E0ED9E0046E542 /* Foundation.framework */; };
+		9CE687D022E0EDBA0046E542 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9CE687CF22E0EDBA0046E542 /* CoreData.framework */; };
+		9CE687D122E0EDCF0046E542 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C4636C81FBA0CFD008FB5EF /* CoreFoundation.framework */; };
+		9CE687D322E0EDE10046E542 /* GLUT.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9CE687D222E0EDE10046E542 /* GLUT.framework */; };
+		9CE79C701F9DFBF700B87310 /* Mars-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9CE79C6F1F9DFBF700B87310 /* Mars-Info.plist */; };
+		A53C77E62622D2F700912EC0 /* libnats_staticd.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A53C77E52622D2F700912EC0 /* libnats_staticd.a */; };
+		A59D66D325D3963900A8A25B /* libfmod.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = A59D66D125D3963900A8A25B /* libfmod.dylib */; };
+		A59D66D525D3963900A8A25B /* libfmodL.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = A59D66D225D3963900A8A25B /* libfmodL.dylib */; };
+		A59D66DA25D396AE00A8A25B /* libfmod.dylib in Resources */ = {isa = PBXBuildFile; fileRef = A59D66D825D396AE00A8A25B /* libfmod.dylib */; };
+		A59D66DB25D396AE00A8A25B /* libfmodL.dylib in Resources */ = {isa = PBXBuildFile; fileRef = A59D66D925D396AE00A8A25B /* libfmodL.dylib */; };
+		A59D66DE25D396CB00A8A25B /* libfmod.dylib in Embed Libraries */ = {isa = PBXBuildFile; fileRef = A59D66D125D3963900A8A25B /* libfmod.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		A59D66E025D396CD00A8A25B /* libfmodL.dylib in Embed Libraries */ = {isa = PBXBuildFile; fileRef = A59D66D225D3963900A8A25B /* libfmodL.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXBuildRule section */
+		4C9EA8982B5055EF00F93CCF /* PBXBuildRule */ = {
+			isa = PBXBuildRule;
+			compilerSpec = com.apple.compilers.proxy.script;
+			fileType = pattern.proxy;
+			inputFiles = (
+			);
+			isEditable = 1;
+			outputFiles = (
+			);
+			script = "# Type a script or drag a script file from your workspace to insert its path.\n";
+		};
+/* End PBXBuildRule section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		4C80E5942909500800AF3A8F /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A59D66DF25D396CB00A8A25B /* Embed Libraries */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 16;
+			files = (
+				A59D66DE25D396CB00A8A25B /* libfmod.dylib in Embed Libraries */,
+				A59D66E025D396CD00A8A25B /* libfmodL.dylib in Embed Libraries */,
+			);
+			name = "Embed Libraries";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		4C00D84F2AF79A19003D2CFA /* Data */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Data; sourceTree = "<group>"; };
+		4C68256C27B10CBB00D6ACBF /* libspng_static.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libspng_static.a; sourceTree = "<group>"; };
+		4C6D3EC927BE5C4300516D0D /* Extensions.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Extensions.cpp; sourceTree = "<group>"; };
+		4C75B1B7290B05EC00D6613F /* AlgeApp-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AlgeApp-Bridging-Header.h"; sourceTree = "<group>"; };
+		4CC2D4322B3082B60044F509 /* AlgeAppDebug.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = AlgeAppDebug.entitlements; sourceTree = "<group>"; };
+		8805BAD223A8983700032A74 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		88070D4F25CC5AD2009A0468 /* imgui_impl_opengl2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = imgui_impl_opengl2.h; sourceTree = "<group>"; };
+		88223B84239F7C9200755258 /* jpgd.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = jpgd.cpp; path = ../../SDKSRC/Base/jpgd.cpp; sourceTree = "<group>"; };
+		88BBEF8423163D1B009AEDF6 /* serif_s24.glyphmap */ = {isa = PBXFileReference; lastKnownFileType = text; name = serif_s24.glyphmap; path = ../serif_s24.glyphmap; sourceTree = "<group>"; };
+		88BBEF8623165163009AEDF6 /* candidate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = candidate.h; path = ../candidate.h; sourceTree = "<group>"; };
+		88D2F4DE2558FCC30061682A /* imgui_internal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = imgui_internal.h; path = ../../../imgui/imgui_internal.h; sourceTree = "<group>"; };
+		88E172E523C4F0A5007A5116 /* libfmod.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libfmod.dylib; path = ../../SDKSRC/Base/fmod/lib/libfmod.dylib; sourceTree = "<group>"; };
+		88E172E723C4F0E9007A5116 /* libfmodL.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libfmodL.dylib; path = ../../SDKSRC/Base/fmod/lib/libfmodL.dylib; sourceTree = "<group>"; };
+		8910DDF32DAA5B9700DC5F39 /* detectkbds.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = detectkbds.cpp; sourceTree = "<group>"; };
+		897A2DF92DB620AE0047A119 /* objc_code.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = objc_code.mm; sourceTree = "<group>"; };
+		897A2DFB2DB620E70047A119 /* SystemEvents.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SystemEvents.h; sourceTree = "<group>"; };
+		897A2DFC2DB621C80047A119 /* ScriptingBridge.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ScriptingBridge.framework; path = System/Library/Frameworks/ScriptingBridge.framework; sourceTree = SDKROOT; };
+		89BF42E02DB0FAD100E4655B /* sendkeystroke */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; path = sendkeystroke; sourceTree = "<group>"; };
+		89BF42E22DB0FAE300E4655B /* send-key-and-restore.applescript */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.applescript; path = "send-key-and-restore.applescript"; sourceTree = "<group>"; };
+		89BF42E42DB1243300E4655B /* Carbon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Carbon.framework; path = System/Library/Frameworks/Carbon.framework; sourceTree = SDKROOT; };
+		89CAA8492B77D303007685C1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS17.2.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		89CAA84B2B77D30E007685C1 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS17.2.sdk/System/Library/Frameworks/QuartzCore.framework; sourceTree = DEVELOPER_DIR; };
+		89CAA84D2B77D319007685C1 /* Metal.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Metal.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS17.2.sdk/System/Library/Frameworks/Metal.framework; sourceTree = DEVELOPER_DIR; };
+		9C2B84542243F747005DF297 /* camera.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = camera.cpp; path = ../../../SDKSRC/Base/camera.cpp; sourceTree = "<group>"; };
+		9C3281BA13F275F900A53E54 /* AlgeApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AlgeApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		9C3281BE13F275F900A53E54 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		9C3281C813F275F900A53E54 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		9C3281CA13F275F900A53E54 /* Mars-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Mars-Prefix.pch"; sourceTree = "<group>"; };
+		9C3281CB13F275F900A53E54 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		9C3281CE13F275F900A53E54 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
+		9C3281D013F275F900A53E54 /* AlgeAppPlanetsAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AlgeAppPlanetsAppDelegate.h; sourceTree = "<group>"; };
+		9C3281D113F275F900A53E54 /* AlgeAppPlanetsAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AlgeAppPlanetsAppDelegate.m; sourceTree = "<group>"; };
+		9C3FB9A31FAEF72F0098B256 /* Toast.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Toast.h; sourceTree = "<group>"; };
+		9C3FB9A41FAEF72F0098B256 /* Toast.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = Toast.mm; sourceTree = "<group>"; };
+		9C3FB9A61FAEFC390098B256 /* libdrawtext.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libdrawtext.a; sourceTree = "<group>"; };
+		9C3FB9A81FAEFC460098B256 /* drawtext.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = drawtext.h; sourceTree = "<group>"; };
+		9C3FB9A91FAEFC4C0098B256 /* drawtext_impl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = drawtext_impl.h; sourceTree = "<group>"; };
+		9C3FB9AB1FAEFF220098B256 /* libGLEW.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libGLEW.a; sourceTree = "<group>"; };
+		9C3FB9AD1FAEFF620098B256 /* libfreetype.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libfreetype.a; sourceTree = "<group>"; };
+		9C3FB9AF1FAEFFF50098B256 /* libbz2.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libbz2.a; sourceTree = "<group>"; };
+		9C4636B81FBA0AF6008FB5EF /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		9C4636BF1FBA0C68008FB5EF /* CBaseV1_2.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CBaseV1_2.h; path = ../../SDKSRC/Base/CBaseV1_2.h; sourceTree = "<group>"; };
+		9C4636C01FBA0C73008FB5EF /* AlgeSDK.ads.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = AlgeSDK.ads.h; path = ../../SDKSRC/Base/Ada/AlgeSDK.ads.h; sourceTree = "<group>"; };
+		9C4636C41FBA0CF0008FB5EF /* CoreAudio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreAudio.framework; path = System/Library/Frameworks/CoreAudio.framework; sourceTree = SDKROOT; };
+		9C4636C81FBA0CFD008FB5EF /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
+		9C4636C91FBA0D11008FB5EF /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		9C4637211FBA0E4B008FB5EF /* alge-mac.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = "alge-mac.cpp"; sourceTree = "<group>"; };
+		9C46498613F2AF22004CE3D7 /* Timer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Timer.cpp; sourceTree = "<group>"; };
+		9C46498713F2AF22004CE3D7 /* Timer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Timer.h; sourceTree = "<group>"; };
+		9C46498A13F2B271004CE3D7 /* MyOpenALSupport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MyOpenALSupport.h; path = ../MyOpenALSupport.h; sourceTree = "<group>"; };
+		9C7680231FAF6E8D007BFCD4 /* AppleGothic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = AppleGothic.ttf; sourceTree = "<group>"; };
+		9CDB499413F28138009F3058 /* screen820480.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = screen820480.png; sourceTree = "<group>"; };
+		9CDB499713F28159009F3058 /* icon100.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon100.png; sourceTree = "<group>"; };
+		9CE59E5922E06297000FB6F1 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		9CE687C922E0ED5D0046E542 /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
+		9CE687CB22E0ED7F0046E542 /* OpenAL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenAL.framework; path = System/Library/Frameworks/OpenAL.framework; sourceTree = SDKROOT; };
+		9CE687CD22E0ED9E0046E542 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		9CE687CF22E0EDBA0046E542 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		9CE687D222E0EDE10046E542 /* GLUT.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLUT.framework; path = System/Library/Frameworks/GLUT.framework; sourceTree = SDKROOT; };
+		9CE79C6A1F9DED0800B87310 /* UTM.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = UTM.cpp; sourceTree = "<group>"; };
+		9CE79C6B1F9DED0800B87310 /* UTM.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UTM.h; sourceTree = "<group>"; };
+		9CE79C6F1F9DFBF700B87310 /* Mars-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Mars-Info.plist"; sourceTree = "<group>"; };
+		9CEA991E1FAB603D00C52351 /* libfreeimage.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libfreeimage.a; sourceTree = "<group>"; };
+		A527DDCB262317DA0057C00F /* imgui.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = imgui.h; path = ../../../imgui/imgui.h; sourceTree = "<group>"; };
+		A53C77E52622D2F700912EC0 /* libnats_staticd.a */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.objfile"; path = libnats_staticd.a; sourceTree = "<group>"; };
+		A595ED332604A35500BFB870 /* CNetMsg.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CNetMsg.cpp; path = ../../Tools/CNetMsg/CNetMsg.cpp; sourceTree = "<group>"; };
+		A59D66D125D3963900A8A25B /* libfmod.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = libfmod.dylib; sourceTree = "<group>"; };
+		A59D66D225D3963900A8A25B /* libfmodL.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = libfmodL.dylib; sourceTree = "<group>"; };
+		A59D66D825D396AE00A8A25B /* libfmod.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = libfmod.dylib; sourceTree = "<group>"; };
+		A59D66D925D396AE00A8A25B /* libfmodL.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = libfmodL.dylib; sourceTree = "<group>"; };
+		A5AB4F652610E94A00634596 /* Box2DebugDraw.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; name = Box2DebugDraw.hpp; path = ../../Apps/Planets/Box2DebugDraw.hpp; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		9C3281B713F275F900A53E54 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				89CAA84E2B77D319007685C1 /* Metal.framework in Frameworks */,
+				89CAA84C2B77D30E007685C1 /* QuartzCore.framework in Frameworks */,
+				897A2DFD2DB621C80047A119 /* ScriptingBridge.framework in Frameworks */,
+				89CAA84A2B77D303007685C1 /* Foundation.framework in Frameworks */,
+				9CE687D322E0EDE10046E542 /* GLUT.framework in Frameworks */,
+				9CE687D122E0EDCF0046E542 /* CoreFoundation.framework in Frameworks */,
+				9CE687D022E0EDBA0046E542 /* CoreData.framework in Frameworks */,
+				9CE687CE22E0ED9E0046E542 /* Foundation.framework in Frameworks */,
+				A53C77E62622D2F700912EC0 /* libnats_staticd.a in Frameworks */,
+				9CE687CC22E0ED7F0046E542 /* OpenAL.framework in Frameworks */,
+				9CE687CA22E0ED5D0046E542 /* OpenGL.framework in Frameworks */,
+				9CE59E5A22E06297000FB6F1 /* CoreGraphics.framework in Frameworks */,
+				A59D66D525D3963900A8A25B /* libfmodL.dylib in Frameworks */,
+				9C4637261FBA0E73008FB5EF /* AppKit.framework in Frameworks */,
+				89BF42E52DB1243300E4655B /* Carbon.framework in Frameworks */,
+				9C4637271FBA0E7C008FB5EF /* CoreAudio.framework in Frameworks */,
+				9C3281BF13F275F900A53E54 /* Cocoa.framework in Frameworks */,
+				9C4636CC1FBA0D65008FB5EF /* AudioToolbox.framework in Frameworks */,
+				A59D66D325D3963900A8A25B /* libfmod.dylib in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		4C1A4B5127BCBB2D00C459EF /* alge */ = {
+			isa = PBXGroup;
+			children = (
+				8910DDF32DAA5B9700DC5F39 /* detectkbds.cpp */,
+				4C6D3EC927BE5C4300516D0D /* Extensions.cpp */,
+				A5AB4F652610E94A00634596 /* Box2DebugDraw.hpp */,
+				A59D66D825D396AE00A8A25B /* libfmod.dylib */,
+				A59D66D925D396AE00A8A25B /* libfmodL.dylib */,
+				A53C77E52622D2F700912EC0 /* libnats_staticd.a */,
+				88070D4F25CC5AD2009A0468 /* imgui_impl_opengl2.h */,
+				88223B84239F7C9200755258 /* jpgd.cpp */,
+				9C4636C01FBA0C73008FB5EF /* AlgeSDK.ads.h */,
+				9C4636BF1FBA0C68008FB5EF /* CBaseV1_2.h */,
+				9C4637211FBA0E4B008FB5EF /* alge-mac.cpp */,
+			);
+			name = alge;
+			sourceTree = "<group>";
+		};
+		9C3281AF13F275F900A53E54 = {
+			isa = PBXGroup;
+			children = (
+				897A2DFB2DB620E70047A119 /* SystemEvents.h */,
+				897A2DF92DB620AE0047A119 /* objc_code.mm */,
+				89BF42E22DB0FAE300E4655B /* send-key-and-restore.applescript */,
+				89BF42E02DB0FAD100E4655B /* sendkeystroke */,
+				4CC2D4322B3082B60044F509 /* AlgeAppDebug.entitlements */,
+				4C00D84F2AF79A19003D2CFA /* Data */,
+				88BBEF8623165163009AEDF6 /* candidate.h */,
+				A527DDCB262317DA0057C00F /* imgui.h */,
+				88D2F4DE2558FCC30061682A /* imgui_internal.h */,
+				4C1A4B5127BCBB2D00C459EF /* alge */,
+				A595ED332604A35500BFB870 /* CNetMsg.cpp */,
+				9C4636BB1FBA0B4D008FB5EF /* clibs */,
+				9C3281C413F275F900A53E54 /* main mm */,
+				9C3281BD13F275F900A53E54 /* Frameworks */,
+				9C3281BB13F275F900A53E54 /* Products */,
+				4C75B1B7290B05EC00D6613F /* AlgeApp-Bridging-Header.h */,
+			);
+			sourceTree = "<group>";
+		};
+		9C3281BB13F275F900A53E54 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				9C3281BA13F275F900A53E54 /* AlgeApp.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		9C3281BD13F275F900A53E54 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				897A2DFC2DB621C80047A119 /* ScriptingBridge.framework */,
+				89BF42E42DB1243300E4655B /* Carbon.framework */,
+				89CAA84D2B77D319007685C1 /* Metal.framework */,
+				89CAA84B2B77D30E007685C1 /* QuartzCore.framework */,
+				89CAA8492B77D303007685C1 /* Foundation.framework */,
+				88E172E723C4F0E9007A5116 /* libfmodL.dylib */,
+				88E172E523C4F0A5007A5116 /* libfmod.dylib */,
+				A59D66D125D3963900A8A25B /* libfmod.dylib */,
+				A59D66D225D3963900A8A25B /* libfmodL.dylib */,
+				9CE687D222E0EDE10046E542 /* GLUT.framework */,
+				9CE687CF22E0EDBA0046E542 /* CoreData.framework */,
+				9CE687CD22E0ED9E0046E542 /* Foundation.framework */,
+				9CE687CB22E0ED7F0046E542 /* OpenAL.framework */,
+				9CE687C922E0ED5D0046E542 /* OpenGL.framework */,
+				9CE59E5922E06297000FB6F1 /* CoreGraphics.framework */,
+				9C4636C91FBA0D11008FB5EF /* AppKit.framework */,
+				9C4636C81FBA0CFD008FB5EF /* CoreFoundation.framework */,
+				9C4636C41FBA0CF0008FB5EF /* CoreAudio.framework */,
+				9C4636B81FBA0AF6008FB5EF /* AudioToolbox.framework */,
+				9C3281BE13F275F900A53E54 /* Cocoa.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		9C3281C413F275F900A53E54 /* main mm */ = {
+			isa = PBXGroup;
+			children = (
+				9CDB499713F28159009F3058 /* icon100.png */,
+				9CDB499413F28138009F3058 /* screen820480.png */,
+				9C46498713F2AF22004CE3D7 /* Timer.h */,
+				9C46498613F2AF22004CE3D7 /* Timer.cpp */,
+				9CE79C6F1F9DFBF700B87310 /* Mars-Info.plist */,
+				9CE79C6B1F9DED0800B87310 /* UTM.h */,
+				9CE79C6A1F9DED0800B87310 /* UTM.cpp */,
+				9C3FB9A31FAEF72F0098B256 /* Toast.h */,
+				9C3FB9A41FAEF72F0098B256 /* Toast.mm */,
+				9C46498A13F2B271004CE3D7 /* MyOpenALSupport.h */,
+				9C3281D013F275F900A53E54 /* AlgeAppPlanetsAppDelegate.h */,
+				9C3281D113F275F900A53E54 /* AlgeAppPlanetsAppDelegate.m */,
+				9C3281D313F275F900A53E54 /* MainMenu.xib */,
+				9C3281C513F275F900A53E54 /* Supporting Files */,
+			);
+			name = "main mm";
+			path = AlgeAppPlanets;
+			sourceTree = "<group>";
+		};
+		9C3281C513F275F900A53E54 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				88BBEF8423163D1B009AEDF6 /* serif_s24.glyphmap */,
+				9C2B84542243F747005DF297 /* camera.cpp */,
+				9C3281C713F275F900A53E54 /* InfoPlist.strings */,
+				9C3281CA13F275F900A53E54 /* Mars-Prefix.pch */,
+				9C3281CB13F275F900A53E54 /* main.m */,
+				9C3281CD13F275F900A53E54 /* Credits.rtf */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		9C3FB9AA1FAEFC570098B256 /* libdrawtest */ = {
+			isa = PBXGroup;
+			children = (
+				9C3FB9AB1FAEFF220098B256 /* libGLEW.a */,
+				9C7680231FAF6E8D007BFCD4 /* AppleGothic.ttf */,
+				9C3FB9AF1FAEFFF50098B256 /* libbz2.a */,
+				9C3FB9AD1FAEFF620098B256 /* libfreetype.a */,
+				9C3FB9A61FAEFC390098B256 /* libdrawtext.a */,
+				9C3FB9A91FAEFC4C0098B256 /* drawtext_impl.h */,
+				9C3FB9A81FAEFC460098B256 /* drawtext.h */,
+			);
+			name = libdrawtest;
+			sourceTree = "<group>";
+		};
+		9C4636BB1FBA0B4D008FB5EF /* clibs */ = {
+			isa = PBXGroup;
+			children = (
+				4C68256C27B10CBB00D6ACBF /* libspng_static.a */,
+				9CEA991E1FAB603D00C52351 /* libfreeimage.a */,
+				9C3FB9AA1FAEFC570098B256 /* libdrawtest */,
+			);
+			name = clibs;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		9C3281B913F275F900A53E54 /* AlgeApp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9C3281D813F275F900A53E54 /* Build configuration list for PBXNativeTarget "AlgeApp" */;
+			buildPhases = (
+				9C3281B713F275F900A53E54 /* Frameworks */,
+				9C3281B813F275F900A53E54 /* Resources */,
+				A59D66DF25D396CB00A8A25B /* Embed Libraries */,
+				9C3281B613F275F900A53E54 /* Sources */,
+				4C80E5942909500800AF3A8F /* Embed Frameworks */,
+			);
+			buildRules = (
+				4C9EA8982B5055EF00F93CCF /* PBXBuildRule */,
+			);
+			dependencies = (
+			);
+			name = AlgeApp;
+			productName = AlgeAppPlanets;
+			productReference = 9C3281BA13F275F900A53E54 /* AlgeApp.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		9C3281B113F275F900A53E54 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 1500;
+				TargetAttributes = {
+					9C3281B913F275F900A53E54 = {
+						LastSwiftMigration = 1340;
+					};
+				};
+			};
+			buildConfigurationList = 9C3281B413F275F900A53E54 /* Build configuration list for PBXProject "Alge-macOS-Arm" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 9C3281AF13F275F900A53E54;
+			productRefGroup = 9C3281BB13F275F900A53E54 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				9C3281B913F275F900A53E54 /* AlgeApp */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		9C3281B813F275F900A53E54 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				89BF42E32DB0FAE300E4655B /* send-key-and-restore.applescript in Resources */,
+				89BF42E12DB0FAD100E4655B /* sendkeystroke in Resources */,
+				4C00D8502AF79A19003D2CFA /* Data in Resources */,
+				A59D66DA25D396AE00A8A25B /* libfmod.dylib in Resources */,
+				A59D66DB25D396AE00A8A25B /* libfmodL.dylib in Resources */,
+				88BBEF8523163D1B009AEDF6 /* serif_s24.glyphmap in Resources */,
+				9CE79C701F9DFBF700B87310 /* Mars-Info.plist in Resources */,
+				9C3281C913F275F900A53E54 /* InfoPlist.strings in Resources */,
+				9C3281CF13F275F900A53E54 /* Credits.rtf in Resources */,
+				9C3281D513F275F900A53E54 /* MainMenu.xib in Resources */,
+				9CDB499513F28138009F3058 /* screen820480.png in Resources */,
+				9CDB499813F28159009F3058 /* icon100.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		9C3281B613F275F900A53E54 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				88223B85239F7C9200755258 /* jpgd.cpp in Sources */,
+				88AB79D12316DC63004A0239 /* UTM.cpp in Sources */,
+				9C3281CC13F275F900A53E54 /* main.m in Sources */,
+				4C6D3ECA27BE5C4300516D0D /* Extensions.cpp in Sources */,
+				897A2DFA2DB620D40047A119 /* objc_code.mm in Sources */,
+				8910DDF42DAA5B9700DC5F39 /* detectkbds.cpp in Sources */,
+				9C3281D213F275F900A53E54 /* AlgeAppPlanetsAppDelegate.m in Sources */,
+				9C4637221FBA0E4B008FB5EF /* alge-mac.cpp in Sources */,
+				9C2B84552243F748005DF297 /* camera.cpp in Sources */,
+				9C46498813F2AF22004CE3D7 /* Timer.cpp in Sources */,
+				9C3FB9A51FAEF72F0098B256 /* Toast.mm in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		9C3281C713F275F900A53E54 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9C3281C813F275F900A53E54 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		9C3281CD13F275F900A53E54 /* Credits.rtf */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9C3281CE13F275F900A53E54 /* en */,
+			);
+			name = Credits.rtf;
+			sourceTree = "<group>";
+		};
+		9C3281D313F275F900A53E54 /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8805BAD223A8983700032A74 /* Base */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		9C3281D613F275F900A53E54 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "c++17";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "Apple Development: Bilal Ahsan (4ZE46H926F)";
+				DEAD_CODE_STRIPPING = YES;
+				DEVELOPMENT_TEAM = G84BL5U52X;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				"FRAMEWORK_SEARCH_PATHS[arch=*]" = "@executable_path/../Frameworks";
+				GCC_C_LANGUAGE_STANDARD = c11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = DEBUG;
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = "";
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				"HEADER_SEARCH_PATHS[arch=*]" = (
+					../../../cnats/src,
+					../../SDKSRC/Tools/CNetMsg,
+					../../../Box2D/Box2D,
+				);
+				INFOPLIST_FILE = "Mars-Info.plist";
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SYSTEM_HEADER_SEARCH_PATHS = (
+					../../Box2D/Box2D,
+					../../imgui,
+				);
+				USER_HEADER_SEARCH_PATHS = (
+					../../Box2D/Box2D,
+					../../imgui,
+				);
+			};
+			name = Debug;
+		};
+		9C3281D713F275F900A53E54 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "c++17";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "Apple Development: Bilal Ahsan (4ZE46H926F)";
+				DEAD_CODE_STRIPPING = YES;
+				DEVELOPMENT_TEAM = G84BL5U52X;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				"FRAMEWORK_SEARCH_PATHS[arch=*]" = "@executable_path/../Frameworks";
+				GCC_C_LANGUAGE_STANDARD = c11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_VERSION = "";
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				"HEADER_SEARCH_PATHS[arch=*]" = (
+					../../../cnats/src,
+					../../../Box2D/Box2D,
+					../../SDKSRC/Tools/CNetMsg,
+				);
+				INFOPLIST_FILE = "Mars-Info.plist";
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				SDKROOT = macosx;
+				SYSTEM_HEADER_SEARCH_PATHS = (
+					../../Box2D/Box2D,
+					../../imgui,
+				);
+				USER_HEADER_SEARCH_PATHS = (
+					../../Box2D/Box2D,
+					../../imgui,
+				);
+			};
+			name = Release;
+		};
+		9C3281D913F275F900A53E54 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CODE_SIGN_ENTITLEMENTS = AlgeAppDebug.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
+				DEVELOPMENT_TEAM = G84BL5U52X;
+				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)";
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "AlgeAppPlanets/Mars-Prefix.pch";
+				"HEADER_SEARCH_PATHS[arch=*]" = (
+					../../SDKSRC/Thirdparty/cnats/include,
+					../../SDKSRC/Tools/CNetMsg,
+					../../../../Box2D/Box2D,
+					../../../Box2D/Box2D,
+					"../../SDKSRC/metal-cpp",
+				);
+				INFOPLIST_FILE = "AlgeAppPlanets/AlgeAppPlanets-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 12.4;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.acnodelabs.apps.mac.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_OBJC_BRIDGING_HEADER = "AlgeApp-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 2;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		9C3281DA13F275F900A53E54 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = YES;
+				DEAD_CODE_STRIPPING = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = G84BL5U52X;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "AlgeAppPlanets/Mars-Prefix.pch";
+				"HEADER_SEARCH_PATHS[arch=*]" = (
+					../../../../Box2D,
+					../../../Box2D,
+				);
+				INFOPLIST_FILE = "AlgeAppPlanets/AlgeAppPlanets-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 12.4;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.acnodelabs.apps.mac.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_OBJC_BRIDGING_HEADER = "AlgeApp-Bridging-Header.h";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 2;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		9C3281B413F275F900A53E54 /* Build configuration list for PBXProject "Alge-macOS-Arm" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9C3281D613F275F900A53E54 /* Debug */,
+				9C3281D713F275F900A53E54 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9C3281D813F275F900A53E54 /* Build configuration list for PBXNativeTarget "AlgeApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9C3281D913F275F900A53E54 /* Debug */,
+				9C3281DA13F275F900A53E54 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 9C3281B113F275F900A53E54 /* Project object */;
+}

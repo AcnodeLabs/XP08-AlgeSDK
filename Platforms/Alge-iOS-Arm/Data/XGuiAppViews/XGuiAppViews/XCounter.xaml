@@ -1,0 +1,31 @@
+﻿<Window x:Class="XGuiAppViews.XCounter"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:XGuiAppViews"
+        mc:Ignorable="d"
+        Title="XCounter" Height="502" Width="600" FontFamily="Roboto-Bold" FontSize="22" Background="Black" Foreground="White">
+    <Grid Margin="0,0,0,0">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*" />
+            <ColumnDefinition Width="1*" />
+            <ColumnDefinition Width="1*" />
+            <ColumnDefinition Width="1*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="42*" />
+            <RowDefinition Height="42*" />
+            <RowDefinition Height="66*" />
+            <RowDefinition Height="19*" />
+            <RowDefinition Height="42*" />
+            <RowDefinition Height="42*" />
+        </Grid.RowDefinitions>
+        <Button Grid.Row="1" Grid.Column="0" FontSize="26.667" Foreground="#FF9EBBF5" Background="#FF3F4143" Content="Reset"></Button>
+        <Button Grid.Row="1" Grid.Column="1" FontSize="26.667" Foreground="#FF9EBBF5" Background="#FF3F4143" Content="Add"></Button>
+        <Button Grid.Row="1" Grid.Column="2" FontSize="26.667" Foreground="#FF9EBBF5" Background="#FF3F4143" Content="List"></Button>
+        <Button Grid.Row="1" Grid.Column="3" FontSize="26.667" Foreground="#FF9EBBF5" Background="#FF3F4143" Content="Settings"></Button>
+        <Button Grid.Row="2" Grid.Column="0" FontSize="26.667" Background="#FF5F6062" Foreground="White" Content="Plot"></Button>
+        <Button Grid.Row="3" Grid.Column="0" FontSize="26.667" Background="#FF5F6062" Foreground="White" Content="00"></Button>
+    </Grid>
+</Window>

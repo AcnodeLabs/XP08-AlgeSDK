@@ -1,0 +1,19 @@
+{ 'RegNo': 'JB-123', 'location' : '<a href='https://www.google.com/maps/@33.6252312,73.098198,17z'>33.6252312,73.098198</a>' ,'data': '<center><table width='90%' border='1' cellpadding='2'>
+<tr><td width='30%'>Registration No.</td><td>JB-123</td></tr>
+<!-- <tr><td>Registration Date</td><td></td></tr> -->
+<tr><td bgcolor='#EEEEEE'>Vehicle Category</td><td bgcolor='#EEEEEE'>PRIVATE</td></tr>
+<tr><td>Vehicle Body</td><td>MOTOR CAR</td></tr>
+<tr><td bgcolor='#EEEEEE'>Maker/Make</td><td bgcolor='#EEEEEE'>TOYOTA / COROLLA ALTIS GRANDE</td></tr>
+<tr><td>Manufacture Year</td><td>2018</td></tr>
+<tr><td bgcolor='#EEEEEE'>Chassis No.</td><td bgcolor='#EEEEEE'>ZRE172R-7029177</td></tr>
+<tr><td>Engine No.</td><td>Q330066</td></tr>
+<tr><td bgcolor='#EEEEEE'>Vehicle Color</td><td bgcolor='#EEEEEE'>SUPER WHITE</td></tr>
+<tr><td>Engine Capacity</td><td>1798</td></tr>
+<tr><td bgcolor='#EEEEEE'>Owner Sr. No.</td><td bgcolor='#EEEEEE'>1</td></tr>
+ 
+<tr><td>Owner Name</td><td>RAHEELA SAJJAD ASHRAF</td></tr>
+<tr><td bgcolor='#EEEEEE'>Tax Paid Upto</td><td bgcolor='#EEEEEE'>30-06-2020</td></tr>
+<tr><td>Vehicle Status</td><td>REGISTERED</td></tr>
+<!-- <tr><td>LifeTime Token</td><td></td></tr> -->
+</table>
+</center>'}

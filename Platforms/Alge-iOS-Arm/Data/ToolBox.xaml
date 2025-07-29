@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding = "utf-8"?>
+	<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+				xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+				x:Class="XGui.ToolBox"
+				Width = "200"
+				Title="TOOL BOX">
+	<ScrollView><VerticalStackLayout>
+	
+	<Label x:Name="lblPos" 
+	FontSize = "18"
+	Text="@pos:0,0"/>
+
+	<Label x:Name="lbl1" 
+	FontSize = "18"
+	Text="You Selected Label"/>
+
+	<Entry x:Name="ent1" 
+	Background = "Green"
+	FontSize = "22_"
+	Text = "tx:Hello"
+	HorizontalOptions = "Start"
+	SemanticProperties.Description="Properties"/>
+
+	<Label Text = "-------------------------------------"
+	FontSize = "18"/>
+
+	<Button x:Name="btn0" Text="-Undo-"
+	HorizontalOptions = "Start"
+	FontSize="20"
+	Clicked="onChoosingLGenXaml"/>
+
+	<Button x:Name="btn1" Text="--Clear--"
+	HorizontalOptions = "Start"
+	FontSize="26"
+	Clicked="onChoosingLGenXaml"/>
+
+	<Label Text = "-------------------------------------"
+	FontSize = "18"/>
+
+	<Button x:Name="btn3" Text="Label"
+	HorizontalOptions = "Start"
+	FontSize="26"/>
+	
+	<Button x:Name="btn4"Text="Button"
+	HorizontalOptions = "Start"
+	FontSize="26"/>
+	
+	<Button x:Name="btn5"Text="Image"
+	HorizontalOptions = "Start"
+	FontSize="26"/>
+	
+	<Button x:Name="btn6"Text="TextInput"
+	HorizontalOptions = "Start"
+	FontSize="26"/>
+	
+	<Label Text = "-------------------------------------"
+	FontSize = "18"/>
+
+	<Button x:Name="btn7" Text="Horiz:"
+	HorizontalOptions = "Start"
+	FontSize="33"/>
+	
+	<Label x:Name="btn7" Text="OFF"
+	HorizontalOptions = "Start"
+	FontSize="33"/>
+
+	<Button x:Name="btn8" Text="Vert:"
+	HorizontalOptions = "Start"
+	FontSize="33"/>
+	
+	<Label x:Name="btn7" Text="OFF"
+	HorizontalOptions = "Start"
+	FontSize="33"/>
+	
+	<Button x:Name="btn10" Text="-reload xgt-"
+	HorizontalOptions = "Start"
+	FontSize="33"/>
+
+	<Button x:Name="btn11" Text="-microfmt-"
+	HorizontalOptions = "Start"
+	FontSize="22"/>
+
+	</VerticalStackLayout></ScrollView></ContentPage>

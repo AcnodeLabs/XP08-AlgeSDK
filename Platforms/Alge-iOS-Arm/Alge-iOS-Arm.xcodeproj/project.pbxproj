@@ -1,0 +1,730 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 54;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1D60589B0D05DD56006BFB54 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; };
+		2514C27210084DB100A42282 /* ES1Renderer.m in Sources */ = {isa = PBXBuildFile; fileRef = 2514C26E10084DB100A42282 /* ES1Renderer.m */; };
+		28FD14FE0DC6FC130079059D /* EAGLView.m in Sources */ = {isa = PBXBuildFile; fileRef = 28FD14FD0DC6FC130079059D /* EAGLView.m */; };
+		4C405F702AC85BD90091E173 /* Data in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4C405F6F2AC85BD90091E173 /* Data */; };
+		4C6D3ECD27BE673200516D0D /* Extensions.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4C6D3ECC27BE5D8700516D0D /* Extensions.cpp */; };
+		4CF59AE4290E54270039A76D /* camera.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4CF59AE2290E54270039A76D /* camera.cpp */; };
+		889E89ED238EDFCA00EB20FA /* jpgd.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 889E89EC238EDFCA00EB20FA /* jpgd.cpp */; };
+		9C0EE48714A99E4800A32921 /* acnodelogo.tga in Resources */ = {isa = PBXBuildFile; fileRef = 9C0EE48614A99E4800A32921 /* acnodelogo.tga */; };
+		9C221B08153751F300EFEA23 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C221B07153751F300EFEA23 /* Default@2x.png */; };
+		9C221B0A1537523D00EFEA23 /* Default-Landscape~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C221B091537523D00EFEA23 /* Default-Landscape~ipad.png */; };
+		9C317A49135B4DC7005DD266 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C317A48135B4DC7005DD266 /* Default.png */; };
+		9C4B598F1464136800ECBDB6 /* icon72.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C4B598E1464136800ECBDB6 /* icon72.png */; };
+		9C4E38F4143CA659006EDD6F /* AdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C4E38F2143CA659006EDD6F /* AdViewController.m */; };
+		9C4E38F5143CA659006EDD6F /* AdViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9C4E38F3143CA659006EDD6F /* AdViewController.xib */; };
+		9C4EDCA51324B637001725A4 /* alge_iphoneAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C4EDCA41324B637001725A4 /* alge_iphoneAppDelegate.m */; };
+		9CB01E3313A9B899006EDC2E /* AccelerometerFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CB01E3213A9B899006EDC2E /* AccelerometerFilter.m */; };
+		9CB1BBD31432EFC00032B4BD /* icon57.png in Resources */ = {isa = PBXBuildFile; fileRef = 9CB1BBD21432EFC00032B4BD /* icon57.png */; };
+		9CB4344E135CAAB200F8C12F /* MainWindow~ipad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9CB4344C135CAAB200F8C12F /* MainWindow~ipad.xib */; };
+		9CB4344F135CAAB200F8C12F /* MainWindow~iphone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9CB4344D135CAAB200F8C12F /* MainWindow~iphone.xib */; };
+		9CC6B534135B3C850099EA7E /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9CC6B52C135B3C840099EA7E /* AVFoundation.framework */; };
+		9CC6B535135B3C850099EA7E /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9CC6B52D135B3C840099EA7E /* CoreFoundation.framework */; };
+		9CC6B536135B3C850099EA7E /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9CC6B52E135B3C840099EA7E /* CoreGraphics.framework */; };
+		9CC6B537135B3C850099EA7E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9CC6B52F135B3C840099EA7E /* Foundation.framework */; };
+		9CC6B538135B3C850099EA7E /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9CC6B530135B3C840099EA7E /* MediaPlayer.framework */; };
+		9CC6B539135B3C850099EA7E /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9CC6B531135B3C840099EA7E /* OpenGLES.framework */; platformFilter = ios; };
+		9CC6B53A135B3C850099EA7E /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9CC6B532135B3C840099EA7E /* QuartzCore.framework */; };
+		9CC6B53B135B3C850099EA7E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9CC6B533135B3C840099EA7E /* UIKit.framework */; };
+		9CF1FCA713E29C70005FB6E5 /* Default-Portrait~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 9CF1FCA613E29C70005FB6E5 /* Default-Portrait~ipad.png */; };
+		9CF4C76D143B653700877BF1 /* iAd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9CF4C76C143B653700877BF1 /* iAd.framework */; };
+		A5657FBF25CD1FF600335140 /* collect.sh in Resources */ = {isa = PBXBuildFile; fileRef = A5657FBE25CD1FF600335140 /* collect.sh */; };
+		A59B580625D1065F003025AF /* libfmod_iphoneos.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A59B580225D1065F003025AF /* libfmod_iphoneos.a */; };
+		A59B580925D1065F003025AF /* libfmodL_iphoneos.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A59B580525D1065F003025AF /* libfmodL_iphoneos.a */; };
+		A59B580B25D1066F003025AF /* libresonanceaudio.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A59B580A25D1066F003025AF /* libresonanceaudio.a */; };
+		A59B581725D10813003025AF /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A59B581625D10813003025AF /* AudioToolbox.framework */; };
+		FA4AB21D1EBCD44B006141FA /* device-app.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FA4AB21C1EBCD44B006141FA /* device-app.cpp */; };
+		FA4AB2221EBCD846006141FA /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FA4AB2211EBCD846006141FA /* Default-568h@2x.png */; };
+		FA9837B51EBC9329002F2850 /* PlayYouTubeInWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA9837B41EBC9329002F2850 /* PlayYouTubeInWebViewController.m */; };
+		FADABDBA1EBCC01200E174CB /* UIViewController_RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FADABDB91EBCC01200E174CB /* UIViewController_RootViewController.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		883E77C7231665DB0014F5A1 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 7;
+			files = (
+				4C405F702AC85BD90091E173 /* Data in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		2514C26D10084DB100A42282 /* ES1Renderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ES1Renderer.h; sourceTree = "<group>"; };
+		2514C26E10084DB100A42282 /* ES1Renderer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ES1Renderer.m; sourceTree = "<group>"; };
+		28FD14FC0DC6FC130079059D /* EAGLView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EAGLView.h; sourceTree = "<group>"; };
+		28FD14FD0DC6FC130079059D /* EAGLView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EAGLView.m; sourceTree = "<group>"; };
+		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		4C405F6F2AC85BD90091E173 /* Data */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Data; sourceTree = "<group>"; };
+		4C6D3EC427BE578500516D0D /* imgui.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = imgui.h; path = ../../../imgui/imgui.h; sourceTree = "<group>"; };
+		4C6D3EC627BE57BE00516D0D /* Box2DebugDraw.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; name = Box2DebugDraw.hpp; path = ../../Apps/Planets/Box2DebugDraw.hpp; sourceTree = "<group>"; };
+		4C6D3EC727BE580700516D0D /* imgui_impl_opengl2.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = imgui_impl_opengl2.h; sourceTree = "<group>"; };
+		4C6D3ECC27BE5D8700516D0D /* Extensions.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Extensions.cpp; sourceTree = "<group>"; };
+		4C6D3ECF27BE684500516D0D /* imgui_impl_opengl2.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = imgui_impl_opengl2.cpp; sourceTree = "<group>"; };
+		4C7E672A27B7B6CF001EC380 /* candidate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = candidate.h; path = ../candidate.h; sourceTree = "<group>"; };
+		4C93E60827C153340061675F /* app.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = app.h; path = ../../SDKSRC/Base/app.h; sourceTree = "<group>"; };
+		4CF59AE2290E54270039A76D /* camera.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = camera.cpp; path = ../../SDKSRC/Base/camera.cpp; sourceTree = "<group>"; };
+		4CF59AE3290E54270039A76D /* camera.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = camera.h; path = ../../SDKSRC/Base/camera.h; sourceTree = "<group>"; };
+		6C34850922E2F6CB00221846 /* AlgeApp.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; name = AlgeApp.hpp; path = ../../SDKSRC/Base/AlgeApp.hpp; sourceTree = "<group>"; };
+		889E89EC238EDFCA00EB20FA /* jpgd.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = jpgd.cpp; path = ../../SDKSRC/Base/jpgd.cpp; sourceTree = "<group>"; };
+		9C0EE48614A99E4800A32921 /* acnodelogo.tga */ = {isa = PBXFileReference; lastKnownFileType = file; path = acnodelogo.tga; sourceTree = "<group>"; };
+		9C221B07153751F300EFEA23 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		9C221B091537523D00EFEA23 /* Default-Landscape~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-Landscape~ipad.png"; path = "../New Group/Default-Landscape~ipad.png"; sourceTree = "<group>"; };
+		9C27BA4F130A8B7E00B89793 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9C317A48135B4DC7005DD266 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		9C3B7DD4135AF17D008EE6B1 /* AlgeApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AlgeApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		9C4B598E1464136800ECBDB6 /* icon72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon72.png; sourceTree = "<group>"; };
+		9C4E38F1143CA659006EDD6F /* AdViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdViewController.h; sourceTree = "<group>"; };
+		9C4E38F2143CA659006EDD6F /* AdViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdViewController.m; sourceTree = "<group>"; };
+		9C4E38F3143CA659006EDD6F /* AdViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AdViewController.xib; sourceTree = "<group>"; };
+		9C4EDCA31324B637001725A4 /* alge_iphoneAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = alge_iphoneAppDelegate.h; sourceTree = "<group>"; };
+		9C4EDCA41324B637001725A4 /* alge_iphoneAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = alge_iphoneAppDelegate.m; sourceTree = "<group>"; };
+		9CB01E3113A9B899006EDC2E /* AccelerometerFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccelerometerFilter.h; sourceTree = "<group>"; };
+		9CB01E3213A9B899006EDC2E /* AccelerometerFilter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccelerometerFilter.m; sourceTree = "<group>"; };
+		9CB1BBD21432EFC00032B4BD /* icon57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon57.png; sourceTree = "<group>"; };
+		9CB4344C135CAAB200F8C12F /* MainWindow~ipad.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = "MainWindow~ipad.xib"; sourceTree = "<group>"; };
+		9CB4344D135CAAB200F8C12F /* MainWindow~iphone.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = "MainWindow~iphone.xib"; sourceTree = "<group>"; };
+		9CC6B52C135B3C840099EA7E /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		9CC6B52D135B3C840099EA7E /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
+		9CC6B52E135B3C840099EA7E /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		9CC6B52F135B3C840099EA7E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		9CC6B530135B3C840099EA7E /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
+		9CC6B531135B3C840099EA7E /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
+		9CC6B532135B3C840099EA7E /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		9CC6B533135B3C840099EA7E /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		9CF1FCA613E29C70005FB6E5 /* Default-Portrait~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Portrait~ipad.png"; sourceTree = "<group>"; };
+		9CF4C76C143B653700877BF1 /* iAd.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = iAd.framework; path = System/Library/Frameworks/iAd.framework; sourceTree = SDKROOT; };
+		A5657FBE25CD1FF600335140 /* collect.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; name = collect.sh; path = ../../Apps/collect.sh; sourceTree = "<group>"; };
+		A58582D325CD781800F07AB1 /* AlgeApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = AlgeApp.entitlements; sourceTree = "<group>"; };
+		A59B57E025D10552003025AF /* libfmod_iphoneos.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libfmod_iphoneos.a; path = ../../../../Downloads/fmodstudio20107ue4/FMODStudio/Binaries/IOS/libfmod_iphoneos.a; sourceTree = "<group>"; };
+		A59B57E125D10552003025AF /* libfmodstudio_iphoneos.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libfmodstudio_iphoneos.a; path = ../../../../Downloads/fmodstudio20107ue4/FMODStudio/Binaries/IOS/libfmodstudio_iphoneos.a; sourceTree = "<group>"; };
+		A59B57E225D10552003025AF /* libfmodstudioL_iphoneos.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libfmodstudioL_iphoneos.a; path = ../../../../Downloads/fmodstudio20107ue4/FMODStudio/Binaries/IOS/libfmodstudioL_iphoneos.a; sourceTree = "<group>"; };
+		A59B57E325D10552003025AF /* libresonanceaudio.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libresonanceaudio.a; path = ../../../../Downloads/fmodstudio20107ue4/FMODStudio/Binaries/IOS/libresonanceaudio.a; sourceTree = "<group>"; };
+		A59B57E425D10552003025AF /* libfmodL_iphoneos.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libfmodL_iphoneos.a; path = ../../../../Downloads/fmodstudio20107ue4/FMODStudio/Binaries/IOS/libfmodL_iphoneos.a; sourceTree = "<group>"; };
+		A59B580225D1065F003025AF /* libfmod_iphoneos.a */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.objfile"; path = libfmod_iphoneos.a; sourceTree = "<group>"; };
+		A59B580525D1065F003025AF /* libfmodL_iphoneos.a */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.objfile"; path = libfmodL_iphoneos.a; sourceTree = "<group>"; };
+		A59B580A25D1066F003025AF /* libresonanceaudio.a */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.objfile"; path = libresonanceaudio.a; sourceTree = "<group>"; };
+		A59B581025D107EF003025AF /* CoreAudio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreAudio.framework; path = System/Library/Frameworks/CoreAudio.framework; sourceTree = SDKROOT; };
+		A59B581325D107FE003025AF /* CoreAudioKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreAudioKit.framework; path = System/Library/Frameworks/CoreAudioKit.framework; sourceTree = SDKROOT; };
+		A59B581625D10813003025AF /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		A59E6949260734FA007004CA /* libnats_staticd.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libnats_staticd.a; path = "../../../cnats/arm64-Xcode/src/Debug/libnats_staticd.a"; sourceTree = "<group>"; };
+		FA4AB21B1EBCD44B006141FA /* app.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = app.h; sourceTree = "<group>"; };
+		FA4AB21C1EBCD44B006141FA /* device-app.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = "device-app.cpp"; sourceTree = "<group>"; };
+		FA4AB2211EBCD846006141FA /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		FA9837B41EBC9329002F2850 /* PlayYouTubeInWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayYouTubeInWebViewController.m; sourceTree = "<group>"; };
+		FADABDB81EBCBA1E00E174CB /* UIViewController_RootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIViewController_RootViewController.h; sourceTree = "<group>"; };
+		FADABDB91EBCC01200E174CB /* UIViewController_RootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIViewController_RootViewController.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		1D60588F0D05DD3D006BFB54 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A59B581725D10813003025AF /* AudioToolbox.framework in Frameworks */,
+				9CF4C76D143B653700877BF1 /* iAd.framework in Frameworks */,
+				9CC6B534135B3C850099EA7E /* AVFoundation.framework in Frameworks */,
+				9CC6B535135B3C850099EA7E /* CoreFoundation.framework in Frameworks */,
+				9CC6B536135B3C850099EA7E /* CoreGraphics.framework in Frameworks */,
+				9CC6B537135B3C850099EA7E /* Foundation.framework in Frameworks */,
+				9CC6B538135B3C850099EA7E /* MediaPlayer.framework in Frameworks */,
+				A59B580B25D1066F003025AF /* libresonanceaudio.a in Frameworks */,
+				9CC6B539135B3C850099EA7E /* OpenGLES.framework in Frameworks */,
+				9CC6B53A135B3C850099EA7E /* QuartzCore.framework in Frameworks */,
+				A59B580625D1065F003025AF /* libfmod_iphoneos.a in Frameworks */,
+				A59B580925D1065F003025AF /* libfmodL_iphoneos.a in Frameworks */,
+				9CC6B53B135B3C850099EA7E /* UIKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		080E96DDFE201D6D7F000001 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				9CB01E3113A9B899006EDC2E /* AccelerometerFilter.h */,
+				9CB01E3213A9B899006EDC2E /* AccelerometerFilter.m */,
+				9C4EDCA31324B637001725A4 /* alge_iphoneAppDelegate.h */,
+				9C4EDCA41324B637001725A4 /* alge_iphoneAppDelegate.m */,
+				2514C26D10084DB100A42282 /* ES1Renderer.h */,
+				2514C26E10084DB100A42282 /* ES1Renderer.m */,
+				28FD14FC0DC6FC130079059D /* EAGLView.h */,
+				28FD14FD0DC6FC130079059D /* EAGLView.m */,
+				FADABDB91EBCC01200E174CB /* UIViewController_RootViewController.m */,
+				FADABDB81EBCBA1E00E174CB /* UIViewController_RootViewController.h */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		19C28FACFE9D520D11CA2CBB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				9C3B7DD4135AF17D008EE6B1 /* AlgeApp.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
+			isa = PBXGroup;
+			children = (
+				4C405F6F2AC85BD90091E173 /* Data */,
+				4C7E672A27B7B6CF001EC380 /* candidate.h */,
+				4C6D3EC427BE578500516D0D /* imgui.h */,
+				4C93E60827C153340061675F /* app.h */,
+				4CF24A3C27BE51F8005D0FCD /* alge */,
+				A59B580A25D1066F003025AF /* libresonanceaudio.a */,
+				A59B580225D1065F003025AF /* libfmod_iphoneos.a */,
+				A59B580525D1065F003025AF /* libfmodL_iphoneos.a */,
+				A58582D325CD781800F07AB1 /* AlgeApp.entitlements */,
+				A5657FBE25CD1FF600335140 /* collect.sh */,
+				6C34850922E2F6CB00221846 /* AlgeApp.hpp */,
+				9CBCE83C20E4B9F70062EEAD /* App Icons */,
+				9CBCE83B20E4B9B60062EEAD /* LaunchScreen Images */,
+				9CF4C76C143B653700877BF1 /* iAd.framework */,
+				9CC6B52C135B3C840099EA7E /* AVFoundation.framework */,
+				9CC6B52D135B3C840099EA7E /* CoreFoundation.framework */,
+				9CC6B52E135B3C840099EA7E /* CoreGraphics.framework */,
+				9CC6B52F135B3C840099EA7E /* Foundation.framework */,
+				9CC6B530135B3C840099EA7E /* MediaPlayer.framework */,
+				9CC6B531135B3C840099EA7E /* OpenGLES.framework */,
+				9CC6B532135B3C840099EA7E /* QuartzCore.framework */,
+				9CC6B533135B3C840099EA7E /* UIKit.framework */,
+				9C5F139B1324D34A0059AAF2 /* Vanilla */,
+				080E96DDFE201D6D7F000001 /* Classes */,
+				29B97315FDCFA39411CA2CEA /* Other Sources */,
+				29B97317FDCFA39411CA2CEA /* Resources */,
+				9C7FF83F13D75C6C004C41A2 /* iPad */,
+				29B97323FDCFA39411CA2CEA /* Frameworks */,
+				19C28FACFE9D520D11CA2CBB /* Products */,
+			);
+			name = CustomTemplate;
+			sourceTree = "<group>";
+		};
+		29B97315FDCFA39411CA2CEA /* Other Sources */ = {
+			isa = PBXGroup;
+			children = (
+				889E89EC238EDFCA00EB20FA /* jpgd.cpp */,
+				4CF59AE2290E54270039A76D /* camera.cpp */,
+				4CF59AE3290E54270039A76D /* camera.h */,
+				FA9837B41EBC9329002F2850 /* PlayYouTubeInWebViewController.m */,
+				9C4E38F1143CA659006EDD6F /* AdViewController.h */,
+				9C4E38F2143CA659006EDD6F /* AdViewController.m */,
+				9C4E38F3143CA659006EDD6F /* AdViewController.xib */,
+				FA4AB21B1EBCD44B006141FA /* app.h */,
+				FA4AB21C1EBCD44B006141FA /* device-app.cpp */,
+				29B97316FDCFA39411CA2CEA /* main.m */,
+			);
+			name = "Other Sources";
+			sourceTree = "<group>";
+		};
+		29B97317FDCFA39411CA2CEA /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				9C0EE48614A99E4800A32921 /* acnodelogo.tga */,
+				9CB4344C135CAAB200F8C12F /* MainWindow~ipad.xib */,
+				9CB4344D135CAAB200F8C12F /* MainWindow~iphone.xib */,
+				9C317A48135B4DC7005DD266 /* Default.png */,
+				9C27BA4F130A8B7E00B89793 /* Info.plist */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A59E6949260734FA007004CA /* libnats_staticd.a */,
+				A59B581625D10813003025AF /* AudioToolbox.framework */,
+				A59B581325D107FE003025AF /* CoreAudioKit.framework */,
+				A59B581025D107EF003025AF /* CoreAudio.framework */,
+				A59B57E025D10552003025AF /* libfmod_iphoneos.a */,
+				A59B57E425D10552003025AF /* libfmodL_iphoneos.a */,
+				A59B57E125D10552003025AF /* libfmodstudio_iphoneos.a */,
+				A59B57E225D10552003025AF /* libfmodstudioL_iphoneos.a */,
+				A59B57E325D10552003025AF /* libresonanceaudio.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		4CF24A3C27BE51F8005D0FCD /* alge */ = {
+			isa = PBXGroup;
+			children = (
+				4C6D3ECC27BE5D8700516D0D /* Extensions.cpp */,
+				4C6D3EC627BE57BE00516D0D /* Box2DebugDraw.hpp */,
+				4C6D3EC727BE580700516D0D /* imgui_impl_opengl2.h */,
+				4C6D3ECF27BE684500516D0D /* imgui_impl_opengl2.cpp */,
+			);
+			name = alge;
+			sourceTree = "<group>";
+		};
+		9C5F139B1324D34A0059AAF2 /* Vanilla */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Vanilla;
+			sourceTree = "<group>";
+		};
+		9C7FF83F13D75C6C004C41A2 /* iPad */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = iPad;
+			sourceTree = "<group>";
+		};
+		9CBCE83B20E4B9B60062EEAD /* LaunchScreen Images */ = {
+			isa = PBXGroup;
+			children = (
+				9C221B091537523D00EFEA23 /* Default-Landscape~ipad.png */,
+				9CF1FCA613E29C70005FB6E5 /* Default-Portrait~ipad.png */,
+				FA4AB2211EBCD846006141FA /* Default-568h@2x.png */,
+				9C221B07153751F300EFEA23 /* Default@2x.png */,
+			);
+			path = "LaunchScreen Images";
+			sourceTree = "<group>";
+		};
+		9CBCE83C20E4B9F70062EEAD /* App Icons */ = {
+			isa = PBXGroup;
+			children = (
+				9C4B598E1464136800ECBDB6 /* icon72.png */,
+				9CB1BBD21432EFC00032B4BD /* icon57.png */,
+			);
+			name = "App Icons";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		1D6058900D05DD3D006BFB54 /* AlgeApp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1D6058960D05DD3E006BFB54 /* Build configuration list for PBXNativeTarget "AlgeApp" */;
+			buildPhases = (
+				1D60588D0D05DD3D006BFB54 /* Resources */,
+				1D60588E0D05DD3D006BFB54 /* Sources */,
+				1D60588F0D05DD3D006BFB54 /* Frameworks */,
+				883E77C7231665DB0014F5A1 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = AlgeApp;
+			productName = "san-angeles-iphone";
+			productReference = 9C3B7DD4135AF17D008EE6B1 /* AlgeApp.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		29B97313FDCFA39411CA2CEA /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 1240;
+			};
+			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "Alge-iOS-Arm" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = en;
+			hasScannedForEncodings = 1;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 29B97314FDCFA39411CA2CEA /* CustomTemplate */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				1D6058900D05DD3D006BFB54 /* AlgeApp */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		1D60588D0D05DD3D006BFB54 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9C317A49135B4DC7005DD266 /* Default.png in Resources */,
+				9CB4344E135CAAB200F8C12F /* MainWindow~ipad.xib in Resources */,
+				9CB4344F135CAAB200F8C12F /* MainWindow~iphone.xib in Resources */,
+				9CF1FCA713E29C70005FB6E5 /* Default-Portrait~ipad.png in Resources */,
+				9CB1BBD31432EFC00032B4BD /* icon57.png in Resources */,
+				FA4AB2221EBCD846006141FA /* Default-568h@2x.png in Resources */,
+				9C4E38F5143CA659006EDD6F /* AdViewController.xib in Resources */,
+				9C4B598F1464136800ECBDB6 /* icon72.png in Resources */,
+				9C0EE48714A99E4800A32921 /* acnodelogo.tga in Resources */,
+				9C221B08153751F300EFEA23 /* Default@2x.png in Resources */,
+				A5657FBF25CD1FF600335140 /* collect.sh in Resources */,
+				9C221B0A1537523D00EFEA23 /* Default-Landscape~ipad.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		1D60588E0D05DD3D006BFB54 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4CF59AE4290E54270039A76D /* camera.cpp in Sources */,
+				889E89ED238EDFCA00EB20FA /* jpgd.cpp in Sources */,
+				1D60589B0D05DD56006BFB54 /* main.m in Sources */,
+				28FD14FE0DC6FC130079059D /* EAGLView.m in Sources */,
+				4C6D3ECD27BE673200516D0D /* Extensions.cpp in Sources */,
+				2514C27210084DB100A42282 /* ES1Renderer.m in Sources */,
+				FADABDBA1EBCC01200E174CB /* UIViewController_RootViewController.m in Sources */,
+				FA4AB21D1EBCD44B006141FA /* device-app.cpp in Sources */,
+				FA9837B51EBC9329002F2850 /* PlayYouTubeInWebViewController.m in Sources */,
+				9C4EDCA51324B637001725A4 /* alge_iphoneAppDelegate.m in Sources */,
+				9CB01E3313A9B899006EDC2E /* AccelerometerFilter.m in Sources */,
+				9C4E38F4143CA659006EDD6F /* AdViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		1D6058940D05DD3E006BFB54 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				"ADDITIONAL_SDKS[arch=*]" = "";
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "c++17";
+				CLANG_CXX_LIBRARY = "compiler-default";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CODE_SIGN_ENTITLEMENTS = AlgeApp.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				"CODE_SIGN_IDENTITY[sdk=*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos4.2]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = G84BL5U52X;
+				GCC_C_LANGUAGE_STANDARD = "compiler-default";
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = untitled_iphone_Prefix.pch;
+				"GCC_THUMB_SUPPORT[sdk=iphoneos4.2][arch=armv6]" = "";
+				GCC_VERSION = "";
+				INFOPLIST_FILE = Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.5.7;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.acnodelabs.apps.alge.AlgeApp;
+				PRODUCT_NAME = AlgeApp;
+				PROVISIONING_PROFILE = "";
+				"PROVISIONING_PROFILE[sdk=*]" = "";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
+				"PROVISIONING_PROFILE[sdk=iphoneos4.2]" = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SDKROOT = iphoneos;
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SYSTEM_HEADER_SEARCH_PATHS = (
+					../Tools/CNetMsg,
+					../../Thirdparty/cnats/include,
+					"../../Thirdparty/Box2D-master",
+					../../Box2D/Box2D,
+					../../imgui,
+					"\"$(SRCROOT)/../../../Box2D/Box2D\"",
+				);
+				TARGETED_DEVICE_FAMILY = "1,2";
+				USER_HEADER_SEARCH_PATHS = (
+					../../Box2D/Box2D,
+					../../imgui,
+					"/Users/liveb/SANDBOX/AlgeSDK/Platforms/Alge-iOS-Arm",
+				);
+			};
+			name = Debug;
+		};
+		1D6058950D05DD3E006BFB54 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "c++17";
+				CLANG_CXX_LIBRARY = "compiler-default";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CODE_SIGN_ENTITLEMENTS = AlgeApp.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = G84BL5U52X;
+				GCC_C_LANGUAGE_STANDARD = "compiler-default";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = untitled_iphone_Prefix.pch;
+				"GCC_THUMB_SUPPORT[sdk=iphoneos4.2][arch=armv6]" = "";
+				GCC_VERSION = "";
+				INFOPLIST_FILE = Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.5.7;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.acnodelabs.apps.alge.AlgeApp;
+				PRODUCT_NAME = AlgeApp;
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SDKROOT = iphoneos;
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SYSTEM_HEADER_SEARCH_PATHS = (
+					../Tools/CNetMsg,
+					../../Thirdparty/cnats/include,
+					"../../Thirdparty/Box2D-master",
+					../../Box2D/Box2D,
+					../../imgui,
+					"\"$(SRCROOT)/../../../Box2D/Box2D\"",
+				);
+				TARGETED_DEVICE_FAMILY = "1,2";
+				USER_HEADER_SEARCH_PATHS = (
+					../../Box2D/Box2D,
+					../../imgui,
+					"/Users/liveb/SANDBOX/AlgeSDK/Platforms/Alge-iOS-Arm",
+				);
+			};
+			name = Release;
+		};
+		9C62B607132E81B90042AD7B /* Distribution */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				ONLY_ACTIVE_ARCH = NO;
+				PRODUCT_NAME = ColorSwitch2D;
+				PROVISIONING_PROFILE = "21953b53-1c53-4012-b4c8-f6593ca835ab";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "68AF5C93-3754-493B-A406-F2D50289B10D";
+				SDKROOT = iphoneos;
+				SYSTEM_HEADER_SEARCH_PATHS = (
+					../Tools/CNetMsg,
+					../../Thirdparty/cnats/include,
+					"../../Thirdparty/Box2D-master",
+				);
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Distribution;
+		};
+		9C62B608132E81B90042AD7B /* Distribution */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "c++17";
+				CLANG_CXX_LIBRARY = "compiler-default";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CODE_SIGN_ENTITLEMENTS = AlgeApp.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphonesimulator4.2]" = "";
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = G84BL5U52X;
+				GCC_C_LANGUAGE_STANDARD = "compiler-default";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = untitled_iphone_Prefix.pch;
+				"GCC_THUMB_SUPPORT[arch=armv6]" = "";
+				GCC_VERSION = "";
+				INFOPLIST_FILE = Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.5.7;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.acnodelabs.apps.alge.AlgeApp;
+				PRODUCT_NAME = AlgeApp;
+				PROVISIONING_PROFILE = "";
+				"PROVISIONING_PROFILE[sdk=iphonesimulator4.2]" = "37C021F2-6B9D-415A-8946-E822A76C7B1A";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SDKROOT = iphoneos;
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SYSTEM_HEADER_SEARCH_PATHS = (
+					../Tools/CNetMsg,
+					../../Thirdparty/cnats/include,
+					"../../Thirdparty/Box2D-master",
+					../../Box2D/Box2D,
+					../../imgui,
+					"\"$(SRCROOT)/../../../Box2D/Box2D\"",
+				);
+				TARGETED_DEVICE_FAMILY = "1,2";
+				USER_HEADER_SEARCH_PATHS = (
+					../../Box2D/Box2D,
+					../../imgui,
+					"/Users/liveb/SANDBOX/AlgeSDK/Platforms/Alge-iOS-Arm",
+				);
+			};
+			name = Distribution;
+		};
+		C01FCF4F08A954540054247B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos4.2]" = "";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = DEBUG;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = ColorSwitch2D;
+				PROVISIONING_PROFILE = "21953b53-1c53-4012-b4c8-f6593ca835ab";
+				"PROVISIONING_PROFILE[sdk=iphoneos4.2]" = "";
+				SDKROOT = iphoneos;
+				SYSTEM_HEADER_SEARCH_PATHS = (
+					../Tools/CNetMsg,
+					../../Thirdparty/cnats/include,
+					"../../Thirdparty/Box2D-master",
+				);
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		C01FCF5008A954540054247B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				PRODUCT_NAME = ColorSwitch2D;
+				PROVISIONING_PROFILE = "21953b53-1c53-4012-b4c8-f6593ca835ab";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
+				SDKROOT = iphoneos;
+				SYSTEM_HEADER_SEARCH_PATHS = (
+					../Tools/CNetMsg,
+					../../Thirdparty/cnats/include,
+					"../../Thirdparty/Box2D-master",
+				);
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1D6058960D05DD3E006BFB54 /* Build configuration list for PBXNativeTarget "AlgeApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1D6058940D05DD3E006BFB54 /* Debug */,
+				1D6058950D05DD3E006BFB54 /* Release */,
+				9C62B608132E81B90042AD7B /* Distribution */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C01FCF4E08A954540054247B /* Build configuration list for PBXProject "Alge-iOS-Arm" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C01FCF4F08A954540054247B /* Debug */,
+				C01FCF5008A954540054247B /* Release */,
+				9C62B607132E81B90042AD7B /* Distribution */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 29B97313FDCFA39411CA2CEA /* Project object */;
+}

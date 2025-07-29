@@ -1,0 +1,1270 @@
+////////// Requires AlgeSDK and Candidate App code to Operate
+
+#include <WinSock2.h>
+#include <windows.h>		// Header File For Windows
+#include <gl\gl.h>			// Header File For The OpenGL32 Library
+#include <gl\glu.h>			// Header File For The GLu32 Library
+#include <Windowsx.h>
+#include "resource.h"
+#include <winerror.h>
+#include <UserEnv.h>
+#pragma comment(lib, "comctl32.lib")
+#include  <commctrl.h>
+#include <stdio.h>
+
+//#define NO_NATS
+#define NO_FONTLIB
+#define NO_GAMEPAD
+// https://stackoverflow.com/questions/30450042/unresolved-external-symbol-imp-iob-func-referenced-in-function-openssldie/35339896
+// FILE _iob[] = { *stdin, *stdout, *stderr };
+// extern "C" FILE* __cdecl __iob_func(void) { return _iob; }
+
+#include "thirdparty.cpp"
+
+#ifndef NO_GAMEPAD
+#include <Gamepad.h>
+#endif
+
+#define ALGE_WINDOWSs
+
+#include "../../SDKSRC/Base/DLL.h"
+
+#include "xgui.hpp"
+
+string remotecommandhelp = "";//set by AlgeApp.hpp
+
+#define CBASE "../../../AlgeSDK/SDKSRC/Base/CBaseV1_2.h"
+#include "../../SDKSRC/Base/CBaseV1_2.h"
+
+HWND hwnd;
+
+//https://stackoverflow.com/questions/6036292/select-a-graphic-device-in-windows-opengl
+// enable optimus!
+extern "C" {
+_declspec(dllexport) DWORD NvOptimusEnablement = 1;
+_declspec(dllexport) int AmdPowerXpressRequestHighPerformance = 1;
+}
+
+extern void(*callBackIn)(string);
+CRect appRect;
+string NATS_STATUS = "Unsupported";
+
+#ifndef NO_NATS
+CNetMsg netmsg;
+int NatsServiceRequest(string svc, string url) {
+	static int httpReuestId = 10000000;
+	string postit = std::to_string(httpReuestId) + "|" + url;
+	netmsg.Post("xal.e." + svc, postit);
+	httpReuestId++;
+	return httpReuestId - 1;
+}
+#endif // !
+
+#include "CANDIDATE.h"
+#include "Timer.h"
+#include <iostream>
+
+
+char ResPath[MAX_PATH] = {0,0};
+
+App		game;
+#define EXTERNIT extern "C"
+//#include "../../SDKSRC/Base/externit.cpp"
+
+HDC			hDC=NULL;		// Private GDI Device Context
+HGLRC		hRC=NULL;		// Permanent Rendering Context
+HWND		hWnd=NULL;		// Holds Our Window Handle
+HINSTANCE	hInstance;		// Holds The Instance Of The Application
+
+#ifdef USING_IRRLICHT
+MyIrrHello ir;
+#endif
+
+bool	keys[256];			// Array Used For The Keyboard Routine
+bool	active=TRUE;		// Window Active Flag Set To TRUE By Default
+bool	fullscreen=TRUE;	// Fullscreen Flag Set To Fullscreen Mode By Default
+
+LRESULT	CALLBACK WndProc(HWND, UINT, WPARAM, LPARAM);	// Declaration For WndProc
+BOOL    CALLBACK  DlgProc(HWND, UINT, WPARAM, LPARAM) ;
+
+HWND hToast ;
+HWND hAccel ;
+
+float aX;
+float aY;
+float aZ;
+float lastTime;
+Timer time1;
+
+char msg[128];
+
+//int whatIsTheLengthOfContent(char* buffer) {
+//	try {
+//		char* ll = strstr(buffer, "Length:") + 8;
+//		return atoi(ll);
+//	}
+//	catch (...) {
+//		return 0;
+//	}
+//}
+CRect c;
+
+XHttpSocket msck;
+
+int getHttpJpegToBuf(string hostname, string resourcepath, string filename, char* buf) {
+	string fileAndRes = (resourcepath + "/" + filename);
+	//int nbytes;
+	//getHttpFile(&ResPath[0], &sck, hostname, resourcepath, filename, &nbytes);
+	return 0;
+}
+
+void appSize(int w, int h, int scale) {
+//	game.coord.setOrientation(!game.landscape);
+	game.coord.setResolutionReported(i2(w, h), scale);
+	
+	game.input.pushI(CMD_SCREENSIZE, game.coord.getResolutionForGameEngine().x, game.coord.getResolutionForGameEngine().y);
+	//game.input.pushI(CMD_SCREENSIZE, w, h);
+//	game.CamReshape(i2(game.coord.getResolutionForGameEngine().x, game.coord.getResolutionForGameEngine().y));
+//	SetWindowPos(hWnd, 0, 0, 0, w, h, SWP_FRAMECHANGED | WS_VISIBLE);
+}
+
+GLvoid ReSizeGLScene(GLsizei inp_width, GLsizei inp_height)		// Resize And Initialize The GL Window
+{
+	int height = (inp_height);
+	int width = (inp_width);
+
+	if (height==0)										// Prevent A Divide By Zero By
+	{
+		height=1;										// Making Height Equal One
+	}
+//#ifndef USING_IRRLICHT
+	//glViewport(0,0,width,height);						// Reset The Current Viewport
+//#endif
+	appSize(width,height,1);
+
+//	sprintf(msg, "ScreenSize(%d,%d)", width, height);
+//	if (game.verbosity_lmh == 'h') netmsg.Post(string(msg));
+#ifndef USING_IRRLICHT
+	glMatrixMode(GL_PROJECTION);						// Select The Projection Matrix
+	glLoadIdentity();									// Reset The Projection Matrix
+	// Calculate The Aspect Ratio Of The Window
+	gluPerspective(45.0f,(GLfloat)width/(GLfloat)height,0.001f,100000000.0f);
+	//glOrtho(0, width, height, 0, 0, -100);
+	glMatrixMode(GL_MODELVIEW);							// Select The Modelview Matrix
+	glLoadIdentity();									// Reset The Modelview Matrix
+#endif
+	
+}
+
+void home_directory(char* ResPath, int len) {
+	DWORD bufsize = len;
+	HANDLE token = 0;
+	OpenProcessToken(GetCurrentProcess(), TOKEN_QUERY, &token);
+	GetUserProfileDirectoryA(token, ResPath, &bufsize);
+	CloseHandle(token);
+}
+int InitGL(GLvoid)										// All Setup For OpenGL Goes Here
+{
+	if (ResPath[0] == 0) {
+		home_directory(ResPath, MAX_PATH);
+		strcat(ResPath, "\\");
+	}
+
+	game.Init0(ResPath, 'W');
+	game.desktop = true;
+	SYSTEMTIME now0;
+	GetLocalTime(&now0);
+	int hr = now0.wHour;
+	int min = now0.wMinute;
+	
+	static short dt[3];
+	dt[0] = now0.wDay;
+	dt[1] = now0.wMonth;
+	dt[2] = now0.wYear;
+	game.input.pushP(CMD_SYSTEMDATE, (void*)dt, (void*)dt);
+	game.input.pushI(CMD_SYSTEMTIME, hr, min);
+	ReSizeGLScene(game.coord.getResolutionForGameEngine().x, game.coord.getResolutionForGameEngine().y);
+
+	return TRUE;										// Initialization Went OK
+}
+
+char soundfiles[16][MAX_PATH];
+float deltaT;
+
+//for mnouse reposition
+double r_mouse;
+POINT p_mouse;
+POINT pn_mouse;
+
+void UpdateMouse(float deltaT) {
+	
+	if (r_mouse > 2.0) r_mouse = 2.0;
+	if (r_mouse >= 1.0) return;
+	r_mouse += deltaT;
+	static CAnimator can;
+	p_mouse.x = int(can.LinearTween(r_mouse, p_mouse.x, pn_mouse.x));
+	p_mouse.y = int(can.LinearTween(r_mouse, p_mouse.y, pn_mouse.y));
+	SetCursorPos(p_mouse.x, p_mouse.y);
+	ShowCursor(true);
+}
+
+#ifndef NO_GAMEPAD
+//GamePad Fucntions
+static bool verbose = false;
+
+void onButtonDown(struct Gamepad_device * device, unsigned int buttonID, double timestamp, void * context) {
+	game.input.pushI(CMD_GAMEPAD_EVENT, MyGamePad::get_i1(buttonID,-1,0,context), MyGamePad::get_i2(buttonID, -1, 0, context));
+	if (verbose) {
+		printf("Button %u down on device %u at %f with context %p\n", buttonID, device->deviceID, timestamp, context);
+	}
+}
+
+void onButtonUp(struct Gamepad_device * device, unsigned int buttonID, double timestamp, void * context) {
+	if (verbose) {
+		printf("Button %u up on device %u at %f with context %p\n", buttonID, device->deviceID, timestamp, context);
+	}
+}
+
+void onAxisMoved(struct Gamepad_device * device, unsigned int axisID, float value, float lastValue, double timestamp, void * context) {
+	if (lastValue==0) game.input.pushI(CMD_GAMEPAD_EVENT, MyGamePad::get_i1(-1, axisID, value, context), MyGamePad::get_i2(-1, axisID, value, context));
+	if (verbose) {
+		printf("Axis %u moved from %f to %f on device %u at %f with context %p\n", axisID, lastValue, value, device->deviceID, timestamp, context);
+	}
+}
+
+void onDeviceAttached(struct Gamepad_device * device, void * context) {
+	if (verbose) {
+		printf("Device ID %u attached (vendor = 0x%X; product = 0x%X) with context %p\n", device->deviceID, device->vendorID, device->productID, context);
+	}
+}
+
+void onDeviceRemoved(struct Gamepad_device * device, void * context) {
+	if (verbose) {
+		printf("Device ID %u removed with context %p\n", device->deviceID, context);
+	}
+}
+//end of GamePad Fucntions
+#endif
+
+//////////////////////~~ Mouse reposition
+
+
+
+int DrawGLScene(GLvoid)									// Here's Where We Do All The Drawing
+{
+	static char fullres[64];
+	
+	float newTime = time1.getElapsedTimeInSec();
+	deltaT =  newTime - lastTime;
+	if (aX==0 && aY==0 && aZ==0) aY=-9.8*100;
+	//deltaT = 0.018;
+
+#ifdef USING_IRRLICHT
+		ir.driver->beginScene(true, true, SColor(255,100,101,140));
+		game.Render(deltaT, aX,aY,aZ);
+		ir.smgr->drawAll();
+		ir.guienv->drawAll();
+		ir.driver->endScene();
+	#else
+		
+	{
+		UpdateMouse(deltaT);
+#ifndef NO_GAMEPAD
+		Gamepad_processEvents();
+#endif
+
+		ImGui_ImplAlgeSDK_BeforeRender();
+		if (deltaT<0.1) game.Render(deltaT, aX, aY, aZ);
+		ImGui_ImplAlgeSDK_AfterRender();
+
+		fmodsystem->update();
+	}
+	
+
+#endif
+	
+
+	lastTime = newTime;
+
+	int command = -1;
+	while (command != 0) {
+		command = game.output.pull()->command;
+		void* p1 = game.output.pulled_param1;
+		void* p2 = game.output.pulled_param2;
+
+		//	int port;
+
+		if (command == CMD_TOAST) {
+			SetWindowTextA(GetDlgItem(hToast, IDC_EDIT1), (LPCSTR)p1);
+			ShowWindow(hToast, SW_SHOWNORMAL);
+			DlgProc(hToast, CMD_TOAST, CMD_TOAST, CMD_TOAST);
+		}
+
+		if (command == CMD_MOUSE_REPOSITION) {
+			GetCursorPos(&p_mouse);
+			r_mouse = 0;
+			pn_mouse.x = game.output.pulled_i1;
+			pn_mouse.y = game.output.pulled_i2;
+		}
+
+		//Open With App Provided Path
+		if (command == CMD_BROWSE) {
+			char cdir[265];
+			strcpy(cdir, (LPCSTR)p1);
+			ShellExecuteA(hWnd, "open", (LPCSTR)cdir, 0, 0, SW_SHOWNORMAL);
+		}
+
+		//Open With App Provided Path
+		if (command == CMD_OPEN) {
+			char cdir[265]; char cpath[265];
+			strcpy(cdir, (LPCSTR)p1);
+			if (p2) {
+				strcpy(cpath, (LPCSTR)p2);
+			}
+			else {
+				GetCurrentDirectoryA(256, cpath);
+			}
+	//		ShellExecuteA(hWnd, "open", (LPCSTR)"C:\\Users\\aliveb\\xalauth.py", "", cpath, SW_SHOWNORMAL);
+			ShellExecuteA(hWnd, "open", (LPCSTR)cdir, "", cpath, SW_SHOWNORMAL);
+		}
+
+		//Open w.r.t Exe
+		if (command == CMD_SPAWN) {
+			char cdir[265];
+			GetCurrentDirectoryA(256, cdir);
+			strcat(cdir, "\\");
+			strcat(cdir, (LPCSTR)p1);
+			ShellExecuteA(hWnd, "open", (LPCSTR)cdir, "", "C:\\", SW_SHOWNORMAL);
+		}
+
+		if (command == CMD_MSG) {
+			MessageBoxA(hWnd, (LPCSTR)p1, "Notification", MB_ICONINFORMATION);
+		}
+		else if (command == CMD_END) {
+			game.Deinit();
+			PostQuitMessage(0);
+		}
+		else if (command >= CMD_SNDSET0 && command <= CMD_SNDSET0 + 15) {
+			char cdir[265];
+			GetCurrentDirectoryA(256, cdir);
+			sprintf(soundfiles[command - CMD_SNDSET0], "%s/%s",cdir , (char*)p1);
+			int sn = command - CMD_SNDSET0;
+			FMOD_Set(sn,soundfiles[sn]);
+		}
+		else if (command >= CMD_SNDPLAY0 && command <= CMD_SNDPLAY0 + 15) {
+			//sndPlaySoundA((char*)soundfiles[command-CMD_SNDPLAY0],SND_ASYNC);
+			//PlaySoundA(NULL,0,0);
+
+/*Disabled Temporarily due to Workspace requirements*/
+			FMOD_Play(command - CMD_SNDPLAY0);
+			
+			//PlaySoundA(soundfiles[command - CMD_SNDPLAY0], NULL, SND_NOSTOP | SND_ASYNC | SND_FILENAME);
+			//	ShellExecuteA(hWnd, "open", soundfiles[command-CMD_SNDPLAY0], "", "C:\\", SW_SHOWNORMAL);
+		}
+		else if (command == CMD_VIDPLAY) {
+		//	ShellExecuteA(hWnd, "open", "C:\\acnode\\Alge_Demos\\Data\\video1.mp4", "", "C:\\", SW_SHOWNORMAL);
+		}
+		else if (command == CMD_TITLE) {
+			SetWindowTextA(hWnd, (LPCSTR)p1);
+		}
+		else if (command == CMD_USEGAMEPAD) {
+#ifndef NO_GAMEPAD
+			Gamepad_deviceAttachFunc(onDeviceAttached, (void *)0x1);
+			Gamepad_deviceRemoveFunc(onDeviceRemoved, (void *)0x2);
+			Gamepad_buttonDownFunc(onButtonDown, (void *)0x3);
+			Gamepad_buttonUpFunc(onButtonUp, (void *)0x4);
+			Gamepad_axisMoveFunc(onAxisMoved, (void *)0x5);
+			Gamepad_init();
+#endif
+		}
+	}
+
+
+	return TRUE;										// Keep Going
+}
+
+
+
+GLvoid KillGLWindow(GLvoid)								// Properly Kill The Window
+{
+	
+	if (fullscreen)										// Are We In Fullscreen Mode?
+	{
+		ChangeDisplaySettings(NULL,0);					// If So Switch Back To The Desktop
+		ShowCursor(TRUE);								// Show Mouse Pointer
+	}
+
+	if (hRC)											// Do We Have A Rendering Context?
+	{
+		if (!wglMakeCurrent(NULL,NULL))					// Are We Able To Release The DC And RC Contexts?
+		{
+			MessageBoxA(NULL,"Release Of DC And RC Failed.","SHUTDOWN ERROR",MB_OK | MB_ICONINFORMATION);
+		}
+
+		if (!wglDeleteContext(hRC))						// Are We Able To Delete The RC?
+		{
+			MessageBoxA(NULL,"Release Rendering Context Failed.","SHUTDOWN ERROR",MB_OK | MB_ICONINFORMATION);
+		}
+		hRC=NULL;										// Set RC To NULL
+	}
+
+	if (hDC && !ReleaseDC(hWnd,hDC))					// Are We Able To Release The DC
+	{
+		MessageBoxA(NULL,"Release Device Context Failed.","SHUTDOWN ERROR",MB_OK | MB_ICONINFORMATION);
+		hDC=NULL;										// Set DC To NULL
+	}
+
+	if (hWnd && !DestroyWindow(hWnd))					// Are We Able To Destroy The Window?
+	{
+		MessageBoxA(NULL,"Could Not Release hWnd.","SHUTDOWN ERROR",MB_OK | MB_ICONINFORMATION);
+		hWnd=NULL;										// Set hWnd To NULL
+	}
+
+	if (!UnregisterClass(TEXT("OpenGL"),hInstance))			// Are We Able To Unregister Class
+	{
+		MessageBoxA(NULL,"Could Not Unregister Class.","SHUTDOWN ERROR",MB_OK | MB_ICONINFORMATION);
+		hInstance=NULL;									// Set hInstance To NULL
+	}
+}
+
+/*	This Code Creates Our OpenGL Window.  Parameters Are:					*
+ *	title			- Title To Appear At The Top Of The Window				*
+ *	width			- Width Of The GL Window Or Fullscreen Mode				*
+ *	height			- Height Of The GL Window Or Fullscreen Mode			*
+ *	bits			- Number Of Bits To Use For Color (8/16/24/32)			*
+ *	fullscreenflag	- Use Fullscreen Mode (TRUE) Or Windowed Mode (FALSE)	*/
+ 
+BOOL CreateGLWindow(char* title, RECT WindowRect, int bits, bool fullscreenflag)
+{
+	//i2 appSizeRequest = game.getBackgroundSize();
+	//if (appSizeRequest.x > 0 && appSizeRequest.y > 0) {
+	//	game.coord.setResolutionReported(appSizeRequest);
+	//}
+	//game.coord.setOrientation(game.getOrientation());
+
+	GLuint		PixelFormat;			// Holds The Results After Searching For A Match
+	WNDCLASS	wc;						// Windows Class Structure
+	DWORD		dwExStyle;				// Window Extended Style
+	DWORD		dwStyle;				// Window Style
+//	RECT		WindowRect;				// Grabs Rectangle Upper Left / Lower Right Values
+//	WindowRect.left = (long)0;// 1280 - width / 2;			// Set Left Value To 0
+//	WindowRect.right=(long)game.getBackgroundSize().x;		// Set Right Value To Requested Width
+//	WindowRect.top = (long)0;// 800 - height / 2;				// Set Top Value To 0
+//	WindowRect.bottom=(long)game.getBackgroundSize().y;		// Set Bottom Value To Requested Height
+//	GetWindowRect(GetDesktopWindow(), &WindowRect);
+	
+	fullscreen=fullscreenflag;			// Set The Global Fullscreen Flag
+
+	hInstance			= GetModuleHandle(NULL);				// Grab An Instance For Our Window
+	wc.style			= CS_HREDRAW | CS_VREDRAW | CS_OWNDC;	// Redraw On Size, And Own DC For Window.
+
+	wc.lpfnWndProc		= (WNDPROC) WndProc;					// WndProc Handles Messages
+	wc.cbClsExtra		= 0;									// No Extra Window Data
+	wc.cbWndExtra		= 0;									// No Extra Window Data
+	wc.hInstance		= hInstance;							// Set The Instance
+	wc.hIcon			= LoadIcon(NULL, IDI_WINLOGO);			// Load The Default Icon
+	wc.hCursor			= LoadCursor(NULL, IDC_ARROW);			// Load The Arrow Pointer
+	wc.hbrBackground	= NULL;									// No Background Required For GL
+	wc.lpszMenuName		= NULL;									// We Don't Want A Menu
+	wc.lpszClassName	= TEXT("OpenGL");								// Set The Class Name
+
+	if (!RegisterClass(&wc))									// Attempt To Register The Window Class
+	{
+		MessageBoxA(NULL,"Failed To Register The Window Class.","ERROR",MB_OK|MB_ICONEXCLAMATION);
+		return FALSE;											// Return FALSE
+	}
+	
+	if (fullscreen)												// Attempt Fullscreen Mode?
+	{
+		DEVMODE dmScreenSettings;								// Device Mode
+		memset(&dmScreenSettings,0,sizeof(dmScreenSettings));	// Makes Sure Memory's Cleared
+
+		dmScreenSettings.dmSize=sizeof(dmScreenSettings);		// Size Of The Devmode Structure
+		dmScreenSettings.dmPelsWidth	= game.coord.getResolutionForGuiUsage().x;				// Selected Screen Width
+		dmScreenSettings.dmPelsHeight	= game.coord.getResolutionForGuiUsage().y;				// Selected Screen Height
+		dmScreenSettings.dmBitsPerPel	= bits;					// Selected Bits Per Pixel
+		dmScreenSettings.dmFields=DM_BITSPERPEL|DM_PELSWIDTH|DM_PELSHEIGHT;
+
+		// Try To Set Selected Mode And Get Results.  NOTE: CDS_FULLSCREEN Gets Rid Of Start Bar.
+		EnumDisplaySettings(NULL, ENUM_CURRENT_SETTINGS, &dmScreenSettings);
+
+		LONG full = ChangeDisplaySettings(&dmScreenSettings, CDS_FULLSCREEN);
+		if (full!=DISP_CHANGE_SUCCESSFUL)
+		{
+			// If The Mode Fails, Offer Two Options.  Quit Or Use Windowed Mode.
+			if (MessageBoxA(NULL,"The Requested Fullscreen Mode Is Not Supported By\nYour Video Card. Use Windowed Mode Instead?","NeHe GL",MB_YESNO|MB_ICONEXCLAMATION)==IDYES)
+			{
+				fullscreen=FALSE;		// Windowed Mode Selected.  Fullscreen = FALSE
+			}
+			else
+			{
+				// Pop Up A Message Box Letting User Know The Program Is Closing.
+				MessageBoxA(NULL,"Program Will Now Close.","ERROR",MB_OK|MB_ICONSTOP);
+				return FALSE;									// Return FALSE
+			}
+		}
+	}
+
+	if (fullscreen)												// Are We Still In Fullscreen Mode?
+	{
+		dwExStyle=WS_EX_APPWINDOW;								// Window Extended Style
+		dwStyle=WS_POPUP;										// Windows Style
+		//ShowCursor(FALSE);										// Hide Mouse Pointer
+	}
+	else
+	{
+		dwExStyle=WS_EX_APPWINDOW | WS_EX_WINDOWEDGE;			// Window Extended Style
+		dwStyle=WS_OVERLAPPEDWINDOW;							// Windows Style
+	}
+
+
+
+	AdjustWindowRectEx(&WindowRect, dwStyle, FALSE, dwExStyle);		// Adjust Window To True Requested Size
+	i2 sz = game.coord.getResolutionForGuiUsage();
+	int th = (GetSystemMetrics(SM_CYSIZEFRAME) + GetSystemMetrics(SM_CYEDGE) * 2);
+
+
+	// Create The Window
+	if (!(hWnd = CreateWindowEx(dwExStyle,							// Extended Style For The Window
+		TEXT("OpenGL"),							// Class Name
+		TEXT("Alge-Windows"),								// Window Title
+		dwStyle |							// Defined Window Style
+		WS_CLIPSIBLINGS |					// Required Window Style
+		WS_CLIPCHILDREN,					// Required Window Style
+		0, 0,								// Window Position
+		(sz.x),//WindowRect.right-WindowRect.left,	// Calculate Window Width
+		(sz.y),//WindowRect.bottom-WindowRect.top,	// Calculate Window Height
+		NULL,								// No Parent Window
+		NULL,								// No Menu
+		hInstance,							// Instance
+		NULL)))								// Dont Pass Anything To WM_CREATE
+	{
+		KillGLWindow();								// Reset The Display
+		MessageBoxA(NULL,"Window Creation Error.","ERROR",MB_OK|MB_ICONEXCLAMATION);
+		return FALSE;								// Return FALSE
+	}
+
+
+
+	static	PIXELFORMATDESCRIPTOR pfd=				// pfd Tells Windows How We Want Things To Be
+	{
+		sizeof(PIXELFORMATDESCRIPTOR),				// Size Of This Pixel Format Descriptor
+		1,											// Version Number
+		PFD_DRAW_TO_WINDOW |						// Format Must Support Window
+		PFD_SUPPORT_OPENGL |						// Format Must Support OpenGL
+		PFD_DOUBLEBUFFER,							// Must Support Double Buffering
+		PFD_TYPE_RGBA,								// Request An RGBA Format
+		(BYTE)bits,										// Select Our Color Depth
+		0, 0, 0, 0, 0, 0,							// Color Bits Ignored
+		0,											// No Alpha Buffer
+		0,											// Shift Bit Ignored
+		0,											// No Accumulation Buffer
+		0, 0, 0, 0,									// Accumulation Bits Ignored
+		16,											// 16Bit Z-Buffer (Depth Buffer)  
+		0,											// No Stencil Buffer
+		0,											// No Auxiliary Buffer
+		PFD_MAIN_PLANE,								// Main Drawing Layer
+		0,											// Reserved
+		0, 0, 0										// Layer Masks Ignored
+	};
+	
+	if (!(hDC=GetDC(hWnd)))							// Did We Get A Device Context?
+	{
+		KillGLWindow();								// Reset The Display
+		MessageBoxA(NULL,"Can't Create A GL Device Context.","ERROR",MB_OK|MB_ICONEXCLAMATION);
+		return FALSE;								// Return FALSE
+	}
+
+	if (!(PixelFormat=ChoosePixelFormat(hDC,&pfd)))	// Did Windows Find A Matching Pixel Format?
+	{
+		KillGLWindow();								// Reset The Display
+		MessageBoxA(NULL,"Can't Find A Suitable PixelFormat.","ERROR",MB_OK|MB_ICONEXCLAMATION);
+		return FALSE;								// Return FALSE
+	}
+
+	if(!SetPixelFormat(hDC,PixelFormat,&pfd))		// Are We Able To Set The Pixel Format?
+	{
+		KillGLWindow();								// Reset The Display
+		MessageBoxA(NULL,"Can't Set The PixelFormat.","ERROR",MB_OK|MB_ICONEXCLAMATION);
+		return FALSE;								// Return FALSE
+	}
+
+	if (!(hRC=wglCreateContext(hDC)))				// Are We Able To Get A Rendering Context?
+	{
+		KillGLWindow();								// Reset The Display
+		MessageBoxA(NULL,"Can't Create A GL Rendering Context.","ERROR",MB_OK|MB_ICONEXCLAMATION);
+		return FALSE;								// Return FALSE
+	}
+
+	if(!wglMakeCurrent(hDC,hRC))					// Try To Activate The Rendering Context
+	{
+		KillGLWindow();								// Reset The Display
+		MessageBoxA(NULL,"Can't Activate The GL Rendering Context.","ERROR",MB_OK|MB_ICONEXCLAMATION);
+		return FALSE;								// Return FALSE
+	}
+
+	//ShowCursor(FALSE);
+//	SetWindowPos(hWnd,NULL, (1280-320)/2, (800-480)/2,0,0,SW_SHOW);
+	if (!game.hideOnStartup()) 
+		ShowWindow(hWnd,SW_SHOW);						// Show The Window
+	SetForegroundWindow(hWnd);						// Slightly Higher Priority
+	SetFocus(hWnd);									// Sets Keyboard Focus To The Window
+
+	{
+		i2 a51(2400, 1080);
+		i2 iphone6(1334, 750);
+
+		i2 dev = a51;
+		float gs = 1;
+		
+		i2 coords_portrait(dev.y, dev.x);
+		i2 coords_landscape(dev.x, dev.y);
+	//	game.coord.setResolutionReported(ORIENT ? coords_portrait : coords_landscape, gs);
+		appSize(game.coord.getResolutionForGameEngine().x, game.coord.getResolutionForGameEngine().y, gs);
+
+	}
+
+
+	ReSizeGLScene(game.coord.getResolutionForGameEngine().x, game.coord.getResolutionForGameEngine().y);					// Set Up Our Perspective GL Screen
+
+
+	if (!InitGL())									// Initialize Our Newly Created GL Window
+	{
+		KillGLWindow();								// Reset The Display
+		MessageBoxA(NULL,"Initialization Failed.","ERROR",MB_OK|MB_ICONEXCLAMATION);
+		return FALSE;								// Return FALSE
+	}
+	return TRUE;									// Success
+}
+
+int NumberKeys(WPARAM wParam) {
+ return wParam-49;
+}
+
+
+BOOL CALLBACK AccelDlgProc(	HWND	hWnd,			// Handle For This Window
+							UINT	uMsg,			// Message For This Window
+							WPARAM	wParam,			// Additional Message Information
+							LPARAM	lParam)			// Additional Message Information
+{
+	
+	switch (uMsg)									// Check For Windows Messages
+	{
+		
+
+		case WM_HSCROLL :
+			{
+			HWND hSb = (HWND) lParam;
+			int val = SendMessage(hSb, TBM_GETPOS, 0, 0);
+			if (hSb==GetDlgItem(hAccel, IDC_SLIDER1)) aX=val;
+			if (hSb==GetDlgItem(hAccel, IDC_SLIDER2)) aY=val;
+			if (hSb==GetDlgItem(hAccel, IDC_SLIDER3)) aZ=val;
+			}
+         break;
+	  break;
+		case WM_INITDIALOG:
+			SetScrollRange (GetDlgItem(hAccel, IDC_SLIDER1), SB_HORZ, -10, 10, TRUE) ;
+			SetScrollRange (GetDlgItem(hAccel, IDC_SLIDER2), SB_HORZ, -10, 10, TRUE) ;
+			SetScrollRange (GetDlgItem(hAccel, IDC_SLIDER3), SB_HORZ, -10, 10, TRUE) ;
+			SendMessage(GetDlgItem(hAccel, IDC_SLIDER1), TBM_SETPOS, TRUE, 0);
+			SendMessage(GetDlgItem(hAccel, IDC_SLIDER2), TBM_SETPOS, TRUE, 0);
+			SendMessage(GetDlgItem(hAccel, IDC_SLIDER3), TBM_SETPOS, TRUE, 0);
+			return TRUE;
+			break;
+
+		case WM_CLOSE :
+		     DestroyWindow (hWnd) ;
+			 hAccel = NULL ;
+			break ;
+
+	}
+
+	return FALSE;
+}
+
+BOOL CALLBACK DlgProc(	HWND	hWnd,			// Handle For This Window
+							UINT	uMsg,			// Message For This Window
+							WPARAM	wParam,			// Additional Message Information
+							LPARAM	lParam)			// Additional Message Information
+{
+	
+	switch (uMsg)									// Check For Windows Messages
+	{
+		case CMD_TOAST:
+			{
+				SetTimer(hWnd,CMD_TOAST,2500,0);
+			}
+			return TRUE;
+			break;
+
+		case WM_TIMER:
+			{
+				ShowWindow(hWnd, SW_HIDE);
+				KillTimer(hWnd, CMD_TOAST);
+			}
+			return TRUE;
+			break;
+
+		case WM_INITDIALOG:
+			return TRUE;
+			break;
+		case WM_LBUTTONDOWN:
+			return TRUE;
+			break;
+		case WM_CLOSE :
+		     DestroyWindow (hWnd) ;
+			 hToast = NULL ;
+			break ;
+
+	}
+
+	return FALSE;
+}
+
+
+bool touching = false;
+bool touchingR = false;
+
+void RescaleUp(HWND hWnd) {
+	game.coord.setResolutionReported(game.coord.getResolutionForGuiUsage().half(), 1.0);
+	ReSizeGLScene(game.coord.getResolutionForGameEngine().x, game.coord.getResolutionForGameEngine().y);
+	ImGui_ImplAlgeSDK_Main(game.coord.getResolutionForGuiUsage().x, game.coord.getResolutionForGuiUsage().y, game.coord.getGuiScale());
+}
+void RescaleDown(HWND hWnd) {
+	game.coord.setResolutionReported(game.coord.getResolutionForGuiUsage().twice(), 1.0);
+	ReSizeGLScene(game.coord.getResolutionForGameEngine().x, game.coord.getResolutionForGameEngine().y);
+	ImGui_ImplAlgeSDK_Main(game.coord.getResolutionForGuiUsage().x, game.coord.getResolutionForGuiUsage().y, game.coord.getGuiScale());
+}
+const int TITLEBARHEIGHT = 0;
+
+i2 param2coords(LPARAM	lParam) {
+	int strange_factor = 1;
+
+	int xPos = GET_X_LPARAM(lParam) * strange_factor;
+	int yPos = GET_Y_LPARAM(lParam) * strange_factor -TITLEBARHEIGHT;
+	return i2(xPos, yPos);
+}
+
+int nats_status = 0;
+string helpnats = "nats-server=?";
+
+LRESULT CALLBACK WndProc(	HWND	hWnd,			// Handle For This Window
+							UINT	uMsg,			// Message For This Window
+							WPARAM	wParam,			// Additional Message Information
+							LPARAM	lParam)			// Additional Message Information
+{
+	
+	ImGui_ImplWin32_WndProcHandler(hWnd, uMsg, wParam, lParam);
+
+	switch (uMsg)									// Check For Windows Messages
+	{
+
+	case WM_CREATE:
+	{
+		hwnd = hWnd;
+
+
+
+
+		// Setup Dear ImGui context
+		IMGUI_CHECKVERSION();
+		ImGui::CreateContext();
+		ImGuiIO& io = ImGui::GetIO(); (void)io;
+		//io.ConfigFlags |= ImGuiConfigFlags_NavEnableKeyboard;     // Enable Keyboard Controls
+
+		// Setup Dear ImGui style
+		ImGui::StyleColorsDark();
+		//ImGui::StyleColorsClassic();
+
+		// Setup Platform/Renderer backends
+		ImGui_ImplWin32_Init(hWnd);
+		//ImGui_ImplGLUT_InstallFuncs();
+		ImGui_ImplOpenGL2_Init();
+	
+#ifdef USING_IRRLICHT
+	ir.Init(0, ResPath + 1);
+#endif
+
+		if (nats_status == 0) {
+			SetWindowTextA(hWnd, helpnats.c_str());
+		}
+		else {
+			
+			static string natsEr = ("NATS-" + (nats_status == 0 ? ("CONNECTED") : ("ERROR=" + to_string(nats_status))) + " CHECK " + helpnats).c_str();
+
+			game.output.pushP(CMD_TOAST, (void*)natsEr.c_str(), nullptr);
+			
+			/*MessageBoxA(hWnd,
+				helpnats.c_str(),
+				("NATS-" + (nats_status == 0 ? ("CONNECTED") : ("ERROR=" + to_string(nats_status)))).c_str(),
+				nats_status == 0 ? MB_ICONINFORMATION : MB_ICONERROR);*/
+		}
+
+
+	}
+		break;
+//  see ImGui_ImplWin32_WndProcHandler
+		case WM_LBUTTONDOWN:
+		{
+			i2 p = param2coords(lParam); 
+			
+#ifndef NO_IMGUI
+			ImGuiIO& io = ImGui::GetIO();
+			if (!io.WantCaptureMouse)
+				game.input.pushI(CMD_TOUCH_START, p.x, p.y);
+#else
+			game.input.pushI(CMD_TOUCH_START, p.x, p.y);
+#endif
+			touching = true;
+		}
+		break;
+		case WM_RBUTTONDOWN:
+		{
+			i2 p = param2coords(lParam);
+			game.input.pushI(CMD_TOUCH_STARTR, p.x, p.y);
+			touchingR = true;
+		}
+		break;
+		case WM_MOUSEWHEEL:
+		{
+			int fwKeys = GET_KEYSTATE_WPARAM(wParam);
+			int zDelta = GET_WHEEL_DELTA_WPARAM(wParam);
+			game.input.pushI(CMD_MOUSEWHEEL, zDelta, fwKeys);
+			ShowCursor(true);
+		}
+		break;
+		case WM_LBUTTONUP: 
+		{
+			i2 p = param2coords(lParam);
+			game.input.pushI(CMD_TOUCH_END, p.x, p.y);
+			touching = false;
+			touchingR = false;
+
+#ifndef NO_IMGUI
+		//	i2 p = param2coords(lParam);
+		//ImGuiIO& io = ImGui::GetIO();
+		//io.MouseDown[0] = true;
+		//io.MousePos = ImVec2((float)p.x, (float)p.y);
+		//io.MouseDown[0] = false;
+
+#endif
+		}
+		break;
+		case WM_MOUSELEAVE:
+			break;
+		
+		case WM_RBUTTONUP:
+		{
+			i2 p = param2coords(lParam);
+			game.input.pushI(CMD_TOUCH_END, p.x, p.y);
+			touching = false;
+			touchingR = false;
+		}
+		break;
+
+
+		case WM_MOUSEMOVE:
+		{
+			i2 p = param2coords(lParam);
+			if (touching)
+				game.input.pushI(CMD_TOUCHMOVE, p.x, p.y);
+			if (touchingR)
+				game.input.pushI(CMD_TOUCHMOVER, p.x, p.y);
+
+			if (!touching && !touchingR) game.input.pushI(CMD_MOUSEMOVE, p.x, p.y);
+			ShowCursor(true);
+		}
+		break;
+
+		case WM_ACTIVATE:							// Watch For Window Activate Message
+		{
+			if (!HIWORD(wParam))					// Check Minimization State
+			{
+				active=TRUE;						// Program Is Active
+				lastTime = time1.getElapsedTimeInSec();
+			}
+			else
+			{
+				active=FALSE;						// Program Is No Longer Active
+			}
+
+			return 0;								// Return To The Message Loop
+		}
+
+		case WM_SYSCOMMAND:							// Intercept System Commands
+		{
+			switch (wParam)							// Check System Calls
+			{
+				case SC_SCREENSAVE:					// Screensaver Trying To Start?
+				case SC_MONITORPOWER:				// Monitor Trying To Enter Powersave?
+				return 0;							// Prevent From Happening
+			}
+			break;									// Exit
+		}
+
+		case WM_CLOSE:								// Did We Receive A Close Message?
+		{
+			PostQuitMessage(0);						// Send A Quit Message
+#ifndef NO_GAMEPAD
+			Gamepad_shutdown();
+#endif // !NO_GAMEPAD
+						
+			return 0;								// Jump Back
+		}
+
+		case WM_KEYDOWN:							// Is A Key Being Held Down?
+		case WM_SYSKEYDOWN:
+		{
+			static BOOL bCursor = true;
+			//game.input.pushI(CMD_KEYDOWN,NumberKeys(wParam),0);
+			game.input.pushI(CMD_KEYDOWN, (wParam), 0);
+			if (NumberKeys(wParam)==18) bCursor=!bCursor;
+			ShowCursor(bCursor);
+			keys[wParam] = TRUE;					// If So, Mark It As TRUE
+
+			if (int(wParam) == 189) {// -_ on windows with mac keyboard
+				RescaleUp(hWnd);
+			}
+
+			if (int(wParam) == 187) {// += on windows with mac keyboard
+				RescaleDown(hWnd);
+			}
+
+			return 0;								// Jump Back
+		}
+
+		case WM_KEYUP:								// Has A Key Been Released?
+		{
+			keys[wParam] = FALSE;					// If So, Mark It As FALSE
+			return 0;								// Jump Back
+		}
+
+		case WM_SIZE:								// Resize The OpenGL Window
+		{
+			i2 wm(LOWORD(lParam), HIWORD(lParam));
+			i2 gm = game.coord.getResolutionForGameEngine();
+			i2 border = i2(gm.x - wm.x, gm.y - wm.y);
+			ReSizeGLScene( wm.x , wm.y);
+			return 0;								// Jump Back
+		}
+	}
+	 
+
+	//ImGui_ImplWin32_WndProcHandler(hWnd, uMsg, wParam, lParam);
+	
+	// Pass All Unhandled Messages To DefWindowProc
+	return DefWindowProc(hWnd,uMsg,wParam,lParam);
+}
+
+void genBatchFoResourceTransfer(char* appname) {
+	FILE* f;
+	
+	fopen_s(&f, "xfer.bat", "w+");
+	if (f) {
+		fprintf(f, "copy /Y ..\\..\\Apps\\%s.Assets\\Data\\*.* ..\\..\\Platforms\\Alge-Android\\app\\src\\main\\assets\n", appname);
+		fprintf(f, "copy /Y ..\\..\\Apps\\%s.Assets\\Data\\*.* ..\\..\\Apps\\COMMON.Assets\\Data\n", appname);
+		fclose(f);
+	}
+}
+
+string FindAppName() {
+	string appname;
+	FILE* f = fopen("../CANDIDATE.h", "r");
+	if (f)
+	{
+		char line[512] = { 0 };
+		
+
+		for (int i=0; i<200; i++) {
+			fgets(line, 512, f);
+	//		int ret = fscanf(f, "%s\n", line);
+			char* pn = strstr(line, ".hpp");
+			strcpy(ResPath, line+1);//ignore "
+			if (pn) {
+				pn[0] = 0;
+				char* r = strrchr(line, '/');
+				if (r) {
+					r[0] = 0;
+					appname = string(strrchr(line, '/') + 1);
+					sprintf_s(ResPath, 256, "../../Apps/%s.Assets/Data/", appname.c_str());
+				//	genBatchFoResourceTransfer(line+1+8);
+					//sprintf_s(ResPath, 256, "%s.Assets/", line); //resource mgr is programmed to seek /Data within it and fallback to it
+				}
+				break;
+			}
+		}
+
+		fclose(f);
+	}
+	return appname;
+}
+
+string base_channel = "";
+static char remoteCommand[256];
+
+void txNatsServiceResponse(string cmd, char* svcname, char* svcresult) {
+	if (svcname[0] == 0) return;
+	string servic = cmd.substr(0, cmd.find("|", 0));
+	if (cmd._Starts_with(servic)) {
+		strcpy(svcname, servic.c_str());
+		strcpy(svcresult, cmd.c_str());
+		//		game.input.pushP(CMD_SERVICE_RESULT, (void*)svcname, (void*)(svcresult + 11));
+		char* svc = svcname;
+		char* res = svcresult;
+		if (string(svc).find(servic) != string::npos) {
+			char* pipe0 = strchr(res, 124);
+			char* pipe1 = strchr(pipe0 + 1, 124);
+			if (pipe0)
+				if (pipe1) {
+					pipe1[0] = 0;
+					char* rest = pipe1 + 1;
+					int i = atoi(pipe0 + 1);
+					game.onNatsServiceResponce(servic, i, rest);
+				}
+		}
+	}
+}
+
+void onRemoteCommand(string cmd) {
+	strcpy(remoteCommand, cmd.c_str());
+	static char svcname[32];
+	static char svcresult[4096];
+	if (remoteCommand[0] == '!') { 
+		
+		game.input.pushP(CMD_REMOTE_COMMAND, (void*)base_channel.c_str(), (void*)remoteCommand); 
+	}
+	else {
+		if (svcname[0] != 0) {
+			txNatsServiceResponse(cmd, svcname, svcresult);
+		}
+		else {
+			remoteCommand[0] = '!';
+			remoteCommand[1] = 'h';
+			game.input.pushP(CMD_REMOTE_COMMAND, (void*)base_channel.c_str(), (void*)remoteCommand);
+		}
+	}
+//	if (cmd._Starts_with("xal.e.http")) {
+//		strcpy(svcname, string("xal.e.http").c_str());
+//		strcpy(svcresult, cmd.c_str());
+////		game.input.pushP(CMD_SERVICE_RESULT, (void*)svcname, (void*)(svcresult + 11));
+//			char* svc = svcname;
+//			char* res = svcresult;
+//			if (string(svc).find("xal.e.http") != string::npos) {
+//				char* pipe0 = strchr(res, 124);
+//				char* pipe1 = strchr(pipe0+1, 124);
+//				if (pipe0)
+//				if (pipe1) {
+//					pipe1[0] = 0;
+//					char* rest = pipe1 + 1;
+//					int i = atoi(pipe0+1);
+//					game.onNatsServiceResponce("xal.e.http", i, rest);
+//				}
+//			}	
+//	}
+}
+
+
+bool Monday() {
+	SYSTEMTIME now0;
+	GetLocalTime(&now0);
+	return (now0.wDayOfWeek == 1);
+}
+
+int getCurrentMonth() {
+	SYSTEMTIME now0;
+	GetLocalTime(&now0);
+	return now0.wMonth;
+}
+
+int getCurrentDayOfMonth() {
+	SYSTEMTIME now0;
+	GetLocalTime(&now0);
+	return now0.wDay;
+}
+
+
+
+int WINAPI WinMain(	_In_ HINSTANCE	hInstance,			// Instance
+					_In_opt_ HINSTANCE	hPrevInstance,		// Previous Instance
+					_In_ LPSTR		lpCmdLine,			// Command Line Parameters
+					_In_ int			nCmdShow)			// Window Show State
+{
+	MSG		msg;									// Windows Message Structure
+	BOOL	done=FALSE;								// Bool Variable To Exit Loop
+	//
+
+	RECT Monitor;
+	GetWindowRect(GetDesktopWindow(), &Monitor);
+	
+//	game.resolutionReported.x = abs(WindowRect.right - WindowRect.left);
+//	game.resolutionReported.y = abs(WindowRect.bottom - WindowRect.top);
+	
+	i2 worksationsize = i2(abs(Monitor.right - Monitor.left), abs(Monitor.bottom - Monitor.top));
+	i2 a51(2400, 1080);
+	
+	game.coord.setWorkstationSize(worksationsize);
+	i2 gameSizeRequirement = game.getBackgroundSize();
+
+	if (game.getOrientation() == game.coord.ORIENTATION_LANDSCAPE)
+		gameSizeRequirement = gameSizeRequirement.flip();
+
+
+	i2 winemusize = gameSizeRequirement;
+	if (winemusize.x == 0 && winemusize.y == 0) {
+		if (game.getOrientation() == game.coord.ORIENTATION_LANDSCAPE) {
+			winemusize.x = worksationsize.x;
+			winemusize.y = worksationsize.y - 75;
+		}
+		else {
+			winemusize.x = worksationsize.x / 3.5;
+			winemusize.y = worksationsize.y - 75;
+		}
+	}
+	//game.coord.setResolutionReported(winemusize,1.0);//windows is non retina
+	//it will be called in appSize
+	game.coord.setResolutionReported(winemusize);
+	
+	game.topSide = 0;
+	game.bottomSide = winemusize.y;
+	game.leftSide = 0;
+	game.rightSide = winemusize.x;
+	game.screenScale = float(winemusize.x) / float(Monitor.right);
+
+	RECT WindowRect;
+	WindowRect.top = game.topSide;
+	WindowRect.bottom = game.bottomSide;
+	WindowRect.left = game.leftSide;
+	WindowRect.right = game.rightSide;
+
+
+	//nats1();
+	r_mouse = 2.0;//means mouse update will not disturb 
+//	MessageBoxA(NULL, lpCmdLine, "COMMANDLINE", MB_ICONASTERISK);
+	if (lpCmdLine[0]) {
+		game.SetCommandLine(string(GetCommandLineA()));
+		
+	} else {
+		
+	}
+
+	FindAppName();
+	base_channel = FindAppName();// "e.*.out";//Listen to all outputs// +FindAppName();
+	//NATS_STATUS = "skipped";
+	string nats_service = netmsg.prepend + "." + base_channel + "@nats-server:4222";
+	nats_status = netmsg.SubscribeConnect(
+		base_channel, false,
+		nats_service);
+		helpnats = nats_service;
+
+	
+
+callBackIn = &onRemoteCommand; //Some Error Recheck Callback scheme
+
+	// Ask The User Which Screen Mode They Prefer
+	fullscreen = false;// MessageBoxA(NULL, "Would You Like To Run In Fullscreen Mode?", "Start FullScreen?", MB_YESNO | MB_ICONQUESTION) == IDYES;
+
+	// Create Our OpenGL Window
+	if (!CreateGLWindow("Alge Prototype", 
+		WindowRect,
+		16,fullscreen))
+	{
+		return 0;									// Quit If Window Was Not Created
+	}
+
+	FMOD_Init();
+
+	//DialogBox (hInstance, TEXT ("Toast"), hWnd, (DLGPROC)DlgProc) ;
+	DWORD A = GetLastError();
+	hToast=CreateDialog(GetModuleHandle(NULL), MAKEINTRESOURCE(IDD_DIALOG1), hWnd,(DLGPROC)DlgProc); 
+	DWORD Ab = GetLastError();
+    ShowWindow (hToast, SW_HIDE) ;
+//	hAccel=CreateDialog(GetModuleHandle(NULL), MAKEINTRESOURCE(IDD_DIALOG2), hWnd,(DLGPROC)AccelDlgProc); 
+//	ShowWindow (hAccel, SW_SHOW) ;
+	RECT rect;
+	GetWindowRect (hToast, &rect) ;
+//    SetWindowPos (hAccel, NULL, rect.right+100,rect.top, 0, 0, SWP_NOZORDER | SWP_NOSIZE) ;
+	
+	ImGui_ImplAlgeSDK_Main(game.coord.getResolutionForGuiUsage().x,game.coord.getResolutionForGuiUsage().y, game.coord.getGuiScale());
+
+	while(!done)									// Loop That Runs While done=FALSE
+	{
+
+		if (PeekMessage(&msg,NULL,0,0,PM_REMOVE))	// Is There A Message Waiting?
+		{
+			
+			if (msg.message==WM_QUIT)				// Have We Received A Quit Message?
+			{
+				done=TRUE;							// If So done=TRUE
+			}
+			else									// If Not, Deal With Window Messages
+			{
+			    if (hToast == 0 || !IsDialogMessage (hToast, &msg))
+				  {
+			         TranslateMessage (&msg) ;
+					 DispatchMessage  (&msg) ;
+				   }
+				
+			}
+		}
+		else										// If There Are No Messages
+		{
+			// Draw The Scene.  Watch For ESC Key And Quit Messages From DrawGLScene()
+			if ((active && !DrawGLScene()) || keys[VK_ESCAPE])	// Active?  Was There A Quit Received?
+			{
+				done=TRUE;							// ESC or DrawGLScene Signalled A Quit
+			}
+			else									// Not Time To Quit, Update Screen
+			{
+				SwapBuffers(hDC);					// Swap Buffers (Double Buffering)
+				
+			}
+
+			if (keys[VK_F1])						// Is F1 Being Pressed?
+			{
+				keys[VK_F1]=FALSE;					// If So Make Key FALSE
+				//KillGLWindow();						// Kill Our Current Window
+				fullscreen=!fullscreen;				// Toggle Fullscreen / Windowed Mode
+				{
+					//Q: How do I switch a window between normal and fullscreen?
+					//A: https://devblogs.microsoft.com/oldnewthing/20100412-00/?p=14353
+					static WINDOWPLACEMENT g_wpPrev;
+					DWORD dwStyle = GetWindowLong(hwnd, GWL_STYLE);
+					if (dwStyle & WS_OVERLAPPEDWINDOW) {
+						MONITORINFO mi = { sizeof(mi) };
+						if (GetWindowPlacement(hwnd, &g_wpPrev) &&
+							GetMonitorInfo(MonitorFromWindow(hwnd,
+								MONITOR_DEFAULTTOPRIMARY), &mi)) {
+							SetWindowLong(hwnd, GWL_STYLE,
+								dwStyle & ~WS_OVERLAPPEDWINDOW);
+							SetWindowPos(hwnd, HWND_TOP,
+								mi.rcMonitor.left, mi.rcMonitor.top,
+								mi.rcMonitor.right - mi.rcMonitor.left,
+								mi.rcMonitor.bottom - mi.rcMonitor.top,
+								SWP_NOOWNERZORDER | SWP_FRAMECHANGED);
+						}
+					}
+					else {
+						SetWindowLong(hwnd, GWL_STYLE,
+							dwStyle | WS_OVERLAPPEDWINDOW);
+						SetWindowPlacement(hwnd, &g_wpPrev);
+						SetWindowPos(hwnd, NULL, 0, 0, 0, 0,
+							SWP_NOMOVE | SWP_NOSIZE | SWP_NOZORDER |
+							SWP_NOOWNERZORDER | SWP_FRAMECHANGED);
+					}
+				}
+			}
+		}
+	}
+
+	
+	KillGLWindow();									// Kill The Window
+	game.Deinit();
+	FMOD_Deinit();
+	
+	ImGui_ImplAlgeSDK_Shutdown();
+
+	return (msg.wParam);							// Exit The Program
+}
+
+#include "../../SDKSRC/Base/externit.cpp"
+#include "../Alge-Windows-Arm/ALGE_WINDOWS.H"

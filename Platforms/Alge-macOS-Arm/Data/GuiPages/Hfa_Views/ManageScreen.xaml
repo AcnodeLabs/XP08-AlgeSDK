@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="HomeFoodAround.ManageScreen"
+             Title="HFA Network">
+    <VerticalStackLayout Spacing="20">
+        <Label 
+            Text="Manage your Kitchen"
+            FontSize="Title"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" />
+        <Entry
+            x:Name="entName"
+            Text="My Kitchen"
+            FontSize="Subtitle"
+            BackgroundColor="Coral"
+            HorizontalTextAlignment="Center"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" />
+       
+        <Image Source="https://i.stack.imgur.com/IdXf6.png"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" />
+
+       <Button Text="Update Pickup Location" WidthRequest="200"></Button>
+        <VerticalStackLayout Spacing="10">
+        
+            <Label Text="You can add upto 6 dishes" HorizontalOptions="CenterAndExpand"></Label>
+            <HorizontalStackLayout HorizontalOptions="Center" Spacing="20">
+                <Image x:Name="pic1" WidthRequest="50" HeightRequest="50" Source ="https://cdn-icons-png.flaticon.com/512/2927/2927347.png"/>
+                <Label x:Name="lbl1" Text=".." VerticalTextAlignment="Center"/>
+                <Button Text="Add" Clicked="Button_Clicked1"/>
+            </HorizontalStackLayout>
+
+            <HorizontalStackLayout HorizontalOptions="Center" Spacing="20">
+                <Image x:Name="pic2" WidthRequest="50" HeightRequest="50" Source ="https://cdn-icons-png.flaticon.com/512/2927/2927347.png"/>
+                <Label x:Name="lbl2" Text=".." VerticalTextAlignment="Center"/>
+                <Button Text="Add" Clicked="Button_Clicked2"/>
+            </HorizontalStackLayout>
+
+            <HorizontalStackLayout HorizontalOptions="Center" Spacing="20">
+                <Image x:Name="pic3" WidthRequest="50" HeightRequest="50" Source ="https://cdn-icons-png.flaticon.com/512/2927/2927347.png"/>
+                <Label x:Name="lbl3" Text=".." VerticalTextAlignment="Center"/>
+                <Button Text="Add" Clicked="Button_Clicked3"/>
+            </HorizontalStackLayout>
+
+            <HorizontalStackLayout HorizontalOptions="Center" Spacing="20">
+                <Image x:Name="pic4" WidthRequest="50" HeightRequest="50" Source ="https://cdn-icons-png.flaticon.com/512/2927/2927347.png"/>
+                <Label x:Name="lbl4" Text=".." VerticalTextAlignment="Center"/>
+                <Button Text="Add" Clicked="Button_Clicked4"/>
+            </HorizontalStackLayout>
+
+            <HorizontalStackLayout HorizontalOptions="Center" Spacing="20">
+                <Image x:Name="pic5" WidthRequest="50" HeightRequest="50" Source ="https://cdn-icons-png.flaticon.com/512/2927/2927347.png"/>
+                <Label x:Name="lbl5" Text=".." VerticalTextAlignment="Center"/>
+                <Button Text="Add" Clicked="Button_Clicked5"/>
+            </HorizontalStackLayout>
+
+            <HorizontalStackLayout HorizontalOptions="Center" Spacing="20">
+                <Image x:Name="pic6" WidthRequest="50" HeightRequest="50" Source ="https://cdn-icons-png.flaticon.com/512/2927/2927347.png"/>
+                <Label x:Name="lbl6" Text=".." VerticalTextAlignment="Center"/>
+                <Button Text="Add" Clicked="Button_Clicked6"/>
+            </HorizontalStackLayout>
+
+        </VerticalStackLayout>
+    </VerticalStackLayout>
+</ContentPage>

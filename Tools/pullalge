@@ -1,0 +1,8 @@
+cd /Volumes/Hub/REPOS/XP08-AlgeSDK
+echo ..pull..
+git commit -am "from mac as requested by SyncMac request from VS running on PC"
+git pull
+echo ..push..
+git add *
+git push
+echo ..Done

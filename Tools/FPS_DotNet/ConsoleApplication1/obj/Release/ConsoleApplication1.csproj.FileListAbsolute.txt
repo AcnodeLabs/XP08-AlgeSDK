@@ -1,0 +1,6 @@
+C:\MINDMAP\WORK\_PROJECTS\_PRODUCTS\AlgeSDK\AlgeSDKToolProjects\Dashboard_DotNet\ConsoleApplication1\obj\Release\ConsoleApplication1.csproj.CoreCompileInputs.cache
+C:\MINDMAP\WORK\_PROJECTS\_PRODUCTS\AlgeSDK\AlgeSDKToolProjects\Dashboard_DotNet\ConsoleApplication1\obj\Release\ConsoleApplication1.csprojResolveAssemblyReference.cache
+C:\MINDMAP\WORK\_PROJECTS\_PRODUCTS\AlgeSDK\AlgeSDKToolProjects\FPS_DotNet\ConsoleApplication1\obj\Release\ConsoleApplication1.csprojResolveAssemblyReference.cache
+C:\MINDMAP\WORK\_PROJECTS\_PRODUCTS\AlgeSDK\AlgeSDKToolProjects\FPS_DotNet\ConsoleApplication1\obj\Release\ConsoleApplication1.csproj.CoreCompileInputs.cache
+C:\Users\aliveb\REPOS\XP08-AlgeSDK\Tools\FPS_DotNet\ConsoleApplication1\obj\Release\ConsoleApplication1.csproj.AssemblyReference.cache
+C:\Users\aliveb\REPOS\XP08-AlgeSDK\Tools\FPS_DotNet\ConsoleApplication1\obj\Release\ConsoleApplication1.csproj.CoreCompileInputs.cache

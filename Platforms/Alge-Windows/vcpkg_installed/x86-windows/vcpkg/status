@@ -1,0 +1,34 @@
+Package: vcpkg-cmake-config
+Version: 2024-05-23
+Architecture: x64-windows
+Multi-Arch: same
+Abi: 5b818ed76debc148b8149f72f22fd7c56ff11ff12ffb315acc7e2f1219eb3674
+Status: install ok installed
+
+Package: vcpkg-cmake
+Version: 2024-04-23
+Architecture: x64-windows
+Multi-Arch: same
+Abi: b6da80fddf026f87f6b8a23e50c9e597ec3f9607e89138f8ce3ab88cf65cf6fa
+Status: install ok installed
+
+Package: bullet3
+Version: 3.25
+Port-Version: 3
+Depends: vcpkg-cmake:x64-windows, vcpkg-cmake-config:x64-windows
+Architecture: x86-windows
+Multi-Arch: same
+Abi: 8d9aebcd3335fa2ab17b88bcccbfc3a9b86f39c8115d287d0554118ed50c13a4
+Description: Bullet Physics is a professional collision detection, rigid body, and soft body dynamics library
+Status: install ok installed
+
+Package: fmt
+Version: 11.0.2
+Port-Version: 1
+Depends: vcpkg-cmake:x64-windows, vcpkg-cmake-config:x64-windows
+Architecture: x86-windows
+Multi-Arch: same
+Abi: f8461b9896c797f1fb12d0fc935b2daeea27e8c153bc099555c5655d92b33b6a
+Description: {fmt} is an open-source formatting library providing a fast and safe alternative to C stdio and C++ iostreams.
+Status: install ok installed
+

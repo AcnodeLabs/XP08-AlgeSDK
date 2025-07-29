@@ -1,0 +1,1 @@
+[Cemcc -std=c++17 -s LEGACY_GL_EMULATION=1 -lglut -lGL alge-wasm.cpp Timer.cpp -o output.html, https://claude.ai/chat/5c803828-134e-421d-af7d-75a6586d28a0

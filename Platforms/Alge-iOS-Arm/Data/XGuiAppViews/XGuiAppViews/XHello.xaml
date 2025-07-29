@@ -1,0 +1,27 @@
+﻿<Window x:Class="XGuiAppViews.XHello"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:XGuiAppViews"
+        mc:Ignorable="d"
+        Title="X" Height="502" Width="600" FontFamily="Roboto-Bold" FontSize="22" Background="Black" Foreground="White">
+    <Grid Margin="0,0,0,0">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="41*" />
+            <ColumnDefinition Width="59*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="22*" />
+            <RowDefinition Height="22*" />
+            <RowDefinition Height="22*" />
+            <RowDefinition Height="22*" />
+            <RowDefinition Height="92*" />
+        </Grid.RowDefinitions>
+        <Label Grid.Row="0" Grid.Column="0" FontSize="46.667" Foreground="#FF9EBBF5" Background="#FF3F4143" Content="Hello, World!" Grid.ColumnSpan="2"></Label>
+        <Label Grid.Row="1" Grid.Column="0" FontSize="26.667" Foreground="#FF9EBBF5" Background="#FF3F4143" Content="Welcome to .NET Multi-platform App UI" Grid.ColumnSpan="2"></Label>
+        <Label Grid.Row="2" Grid.Column="0" FontSize="36.667" Foreground="#FF9EBBF5" Background="#FF3F4143" Content="Current count: 0" Grid.ColumnSpan="2"></Label>
+        <Button Grid.Row="3" Grid.Column="0" FontSize="36.667" Foreground="#FF9EBBF5" Background="#FF3F4143" Content="Click me" Grid.ColumnSpan="2"></Button>
+        <Image Grid.Row="4" Grid.Column="0" Source="dotnet_bot.png" Grid.ColumnSpan="2"></Image>
+    </Grid>
+</Window>

@@ -1,0 +1,25 @@
+V1 Specs
+
+e.g tag=play
+=======
+Folder name = <TAG>.btn
+-------
+Folder Contents
+
+Unpressed:
+btn_<TAG>_U.alx
+btn_<TAG>_U.tga
+
+Pressed:
+btn_<TAG>_P.alx
+btn_<TAG>_P.tga
+
+Hover:
+Up:
+btn_<TAG>_H.alx
+btn_<TAG>_H.tga
+
+tga files
+All tga files should be an uncompressed tga image with alpha channel 
+an uncompressed tga can be exported by gimp
+a typical 128x128 tga size is around 65kb

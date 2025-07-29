@@ -1,0 +1,5 @@
+# Delete all files in the app/src/main/assets directory
+rm -rvf Data/*
+
+# Copy files from the specified directory to app/src/main/assets (including subdirectories)
+cp -rvf ../../Apps/$1.Assets/Data/* Data/
